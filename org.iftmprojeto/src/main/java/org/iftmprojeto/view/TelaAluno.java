@@ -1,20 +1,19 @@
 package org.iftmprojeto.view;
+
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
+import javax.swing.JPanel;
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 import java.awt.Font;
+import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import javax.swing.JPanel;
 import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class Aluno {
-
-	private JFrame frmCadastroDeAluno;
-	private JPanel panel;
+public class TelaAluno extends JInternalFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -31,8 +30,8 @@ public class Aluno {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Aluno window = new Aluno();
-					window.frmCadastroDeAluno.setVisible(true);
+					TelaAluno frame = new TelaAluno();
+					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -41,26 +40,16 @@ public class Aluno {
 	}
 
 	/**
-	 * Create the application.
+	 * Create the frame.
 	 */
-	public Aluno() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frmCadastroDeAluno = new JFrame();
-		frmCadastroDeAluno.setTitle("Cadastro de Aluno");
-		frmCadastroDeAluno.setBounds(100, 100, 524, 432);
-		frmCadastroDeAluno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmCadastroDeAluno.getContentPane().setLayout(null);
+	public TelaAluno() {
+		setBounds(100, 100, 529, 439);
+		getContentPane().setLayout(null);
 		
-		panel = new JPanel();
-		panel.setBounds(0, 0, 508, 393);
-		frmCadastroDeAluno.getContentPane().add(panel);
+		JPanel panel = new JPanel();
 		panel.setLayout(null);
+		panel.setBounds(0, 0, 508, 393);
+		getContentPane().add(panel);
 		
 		JLabel lblNewLabel = new JLabel("Cadastro de Aluno");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -69,7 +58,7 @@ public class Aluno {
 		panel.add(lblNewLabel);
 		
 		JLabel lblalMatricula = new JLabel("Matricula:");
-		lblalMatricula.setBounds(20, 45, 110, 14);
+		lblalMatricula.setBounds(20, 45, 109, 14);
 		panel.add(lblalMatricula);
 		
 		textField = new JTextField();
@@ -87,7 +76,7 @@ public class Aluno {
 		panel.add(textField_1);
 		
 		JLabel lblalEdicao = new JLabel("Telefone:");
-		lblalEdicao.setBounds(20, 95, 110, 14);
+		lblalEdicao.setBounds(20, 95, 75, 14);
 		panel.add(lblalEdicao);
 		
 		textField_2 = new JTextField();
@@ -96,7 +85,7 @@ public class Aluno {
 		panel.add(textField_2);
 		
 		JLabel lblalEndereco = new JLabel("Endereço:");
-		lblalEndereco.setBounds(258, 95, 177, 14);
+		lblalEndereco.setBounds(258, 95, 211, 14);
 		panel.add(lblalEndereco);
 		
 		textField_3 = new JTextField();
@@ -105,7 +94,7 @@ public class Aluno {
 		panel.add(textField_3);
 		
 		JLabel lblalCurso = new JLabel("Curso:");
-		lblalCurso.setBounds(139, 151, 110, 14);
+		lblalCurso.setBounds(139, 151, 109, 14);
 		panel.add(lblalCurso);
 		
 		textField_4 = new JTextField();
@@ -114,7 +103,7 @@ public class Aluno {
 		panel.add(textField_4);
 		
 		JLabel lblalCep = new JLabel("CEP:");
-		lblalCep.setBounds(139, 95, 109, 14);
+		lblalCep.setBounds(139, 95, 110, 14);
 		panel.add(lblalCep);
 		
 		textField_5 = new JTextField();
@@ -123,23 +112,28 @@ public class Aluno {
 		panel.add(textField_5);
 		
 		JButton btnSalvar = new JButton("Salvar");
-		btnSalvar.setBounds(113, 348, 83, 23);
+		btnSalvar.setBounds(113, 348, 85, 23);
 		panel.add(btnSalvar);
 		
 		JButton btnEditar = new JButton("Editar");
-		btnEditar.setBounds(217, 348, 83, 23);
+		btnEditar.setBounds(215, 348, 85, 23);
 		panel.add(btnEditar);
 		
 		JButton btnExcluir = new JButton("Excluir");
-		btnExcluir.setBounds(310, 348, 83, 23);
+		btnExcluir.setBounds(310, 348, 85, 23);
 		panel.add(btnExcluir);
 		
 		JButton btnSair = new JButton("Sair");
-		btnSair.setBounds(415, 348, 83, 23);
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				   System.exit(0);
+			}
+		});
+		btnSair.setBounds(405, 348, 85, 23);
 		panel.add(btnSair);
 		
 		JButton btnNovo = new JButton("Novo");
-		btnNovo.setBounds(10, 348, 83, 23);
+		btnNovo.setBounds(10, 348, 85, 23);
 		panel.add(btnNovo);
 		
 		JPanel lblalImagem = new JPanel();
@@ -153,7 +147,7 @@ public class Aluno {
 		panel.add(textField_6);
 		
 		JLabel lblalNascimento = new JLabel("Data Nascimento:");
-		lblalNascimento.setBounds(20, 151, 110, 14);
+		lblalNascimento.setBounds(20, 151, 109, 14);
 		panel.add(lblalNascimento);
 		
 		JComboBox alSituacao = new JComboBox();
@@ -166,7 +160,7 @@ public class Aluno {
 		panel.add(lblalSituação);
 		
 		JLabel lblalTurno = new JLabel("Turno:");
-		lblalTurno.setBounds(20, 207, 83, 14);
+		lblalTurno.setBounds(20, 207, 109, 14);
 		panel.add(lblalTurno);
 		
 		textField_7 = new JTextField();
@@ -178,5 +172,7 @@ public class Aluno {
 		lblexImagem.setLayout(null);
 		lblexImagem.setBounds(258, 154, 228, 183);
 		panel.add(lblexImagem);
+
 	}
+
 }

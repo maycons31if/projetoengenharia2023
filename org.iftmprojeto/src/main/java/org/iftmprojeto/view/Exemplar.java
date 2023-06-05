@@ -31,6 +31,7 @@ public class Exemplar {
 	private JLabel lblexSituacao;
 	private JTextField textField;
 	private JTextField textField_1;
+	private JPanel panel;
 
 	/**
 	 * Launch the application.
@@ -65,135 +66,140 @@ public class Exemplar {
 		frmCadastroDeExemplar.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCadastroDeExemplar.getContentPane().setLayout(null);
 		
+		panel = new JPanel();
+		panel.setBounds(10, 11, 488, 360);
+		frmCadastroDeExemplar.getContentPane().add(panel);
+		panel.setLayout(null);
+		
 		JLabel lblNewLabel = new JLabel("Cadastro de Exemplares");
+		lblNewLabel.setBounds(0, 0, 488, 14);
+		panel.add(lblNewLabel);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(10, 11, 488, 14);
-		frmCadastroDeExemplar.getContentPane().add(lblNewLabel);
 		
 		JLabel lblexisbn = new JLabel("ISBN:");
-		lblexisbn.setBounds(20, 101, 46, 14);
-		frmCadastroDeExemplar.getContentPane().add(lblexisbn);
+		lblexisbn.setBounds(10, 90, 46, 14);
+		panel.add(lblexisbn);
 		
 		exIsbn = new JTextField();
-		exIsbn.setBounds(20, 120, 109, 20);
-		frmCadastroDeExemplar.getContentPane().add(exIsbn);
+		exIsbn.setBounds(10, 109, 109, 20);
+		panel.add(exIsbn);
 		exIsbn.setColumns(13);
 		
 		JLabel lblexTitulo = new JLabel("Titulo:");
-		lblexTitulo.setBounds(139, 51, 46, 14);
-		frmCadastroDeExemplar.getContentPane().add(lblexTitulo);
+		lblexTitulo.setBounds(129, 40, 46, 14);
+		panel.add(lblexTitulo);
 		
 		exTitulo = new JTextField();
+		exTitulo.setBounds(129, 59, 359, 20);
+		panel.add(exTitulo);
 		exTitulo.setColumns(13);
-		exTitulo.setBounds(139, 70, 359, 20);
-		frmCadastroDeExemplar.getContentPane().add(exTitulo);
 		
 		lblexEdicao = new JLabel("Edição:");
-		lblexEdicao.setBounds(139, 101, 46, 14);
-		frmCadastroDeExemplar.getContentPane().add(lblexEdicao);
+		lblexEdicao.setBounds(129, 90, 46, 14);
+		panel.add(lblexEdicao);
 		
 		exEdicao = new JTextField();
+		exEdicao.setBounds(129, 109, 109, 20);
+		panel.add(exEdicao);
 		exEdicao.setColumns(13);
-		exEdicao.setBounds(139, 120, 109, 20);
-		frmCadastroDeExemplar.getContentPane().add(exEdicao);
 		
 		lblexEditora = new JLabel("Editora:");
-		lblexEditora.setBounds(258, 101, 46, 14);
-		frmCadastroDeExemplar.getContentPane().add(lblexEditora);
+		lblexEditora.setBounds(248, 90, 46, 14);
+		panel.add(lblexEditora);
 		
 		exEditora = new JTextField();
+		exEditora.setBounds(248, 109, 109, 20);
+		panel.add(exEditora);
 		exEditora.setColumns(13);
-		exEditora.setBounds(258, 120, 109, 20);
-		frmCadastroDeExemplar.getContentPane().add(exEditora);
 		
 		lblexIdioma = new JLabel("Idioma:");
-		lblexIdioma.setBounds(377, 101, 46, 14);
-		frmCadastroDeExemplar.getContentPane().add(lblexIdioma);
+		lblexIdioma.setBounds(367, 90, 46, 14);
+		panel.add(lblexIdioma);
 		
 		exIdioma = new JTextField();
+		exIdioma.setBounds(367, 109, 109, 20);
+		panel.add(exIdioma);
 		exIdioma.setColumns(13);
-		exIdioma.setBounds(377, 120, 109, 20);
-		frmCadastroDeExemplar.getContentPane().add(exIdioma);
 		
 		lblexVolume = new JLabel("Prateleira:");
-		lblexVolume.setBounds(20, 207, 79, 14);
-		frmCadastroDeExemplar.getContentPane().add(lblexVolume);
+		lblexVolume.setBounds(10, 196, 79, 14);
+		panel.add(lblexVolume);
 		
 		exPrateleira = new JTextField();
+		exPrateleira.setBounds(10, 221, 109, 20);
+		panel.add(exPrateleira);
 		exPrateleira.setColumns(13);
-		exPrateleira.setBounds(20, 232, 109, 20);
-		frmCadastroDeExemplar.getContentPane().add(exPrateleira);
 		
 		JButton btnSalvar = new JButton("Salvar");
-		btnSalvar.setBounds(113, 348, 89, 23);
-		frmCadastroDeExemplar.getContentPane().add(btnSalvar);
+		btnSalvar.setBounds(103, 337, 89, 23);
+		panel.add(btnSalvar);
 		
 		JButton btnEditar = new JButton("Editar");
-		btnEditar.setBounds(215, 348, 89, 23);
-		frmCadastroDeExemplar.getContentPane().add(btnEditar);
+		btnEditar.setBounds(205, 337, 89, 23);
+		panel.add(btnEditar);
 		
 		JButton btnExcluir = new JButton("Excluir");
-		btnExcluir.setBounds(310, 348, 89, 23);
-		frmCadastroDeExemplar.getContentPane().add(btnExcluir);
+		btnExcluir.setBounds(300, 337, 89, 23);
+		panel.add(btnExcluir);
 		
 		JButton btnSair = new JButton("Sair");
-		btnSair.setBounds(409, 348, 89, 23);
-		frmCadastroDeExemplar.getContentPane().add(btnSair);
+		btnSair.setBounds(399, 337, 89, 23);
+		panel.add(btnSair);
 		
 		btnNovo = new JButton("Novo");
-		btnNovo.setBounds(10, 348, 89, 23);
-		frmCadastroDeExemplar.getContentPane().add(btnNovo);
+		btnNovo.setBounds(0, 337, 89, 23);
+		panel.add(btnNovo);
 		
 		JPanel lblexImagem = new JPanel();
-		lblexImagem.setBounds(258, 154, 228, 183);
-		frmCadastroDeExemplar.getContentPane().add(lblexImagem);
+		lblexImagem.setBounds(248, 143, 228, 183);
+		panel.add(lblexImagem);
 		lblexImagem.setLayout(null);
 		
 		exEstante = new JTextField();
+		exEstante.setBounds(129, 221, 109, 20);
+		panel.add(exEstante);
 		exEstante.setColumns(13);
-		exEstante.setBounds(139, 232, 109, 20);
-		frmCadastroDeExemplar.getContentPane().add(exEstante);
 		
 		JLabel lblexEstante = new JLabel("Estante:");
-		lblexEstante.setBounds(139, 207, 46, 14);
-		frmCadastroDeExemplar.getContentPane().add(lblexEstante);
+		lblexEstante.setBounds(129, 196, 46, 14);
+		panel.add(lblexEstante);
 		
 		exCodigo = new JTextField();
+		exCodigo.setBounds(10, 59, 109, 20);
+		panel.add(exCodigo);
 		exCodigo.setColumns(13);
-		exCodigo.setBounds(20, 70, 109, 20);
-		frmCadastroDeExemplar.getContentPane().add(exCodigo);
 		
 		JLabel lblexCodigo = new JLabel("Codigo:");
-		lblexCodigo.setBounds(20, 51, 46, 14);
-		frmCadastroDeExemplar.getContentPane().add(lblexCodigo);
+		lblexCodigo.setBounds(10, 40, 46, 14);
+		panel.add(lblexCodigo);
 		
 		lblexSituacao = new JLabel("Situação:");
-		lblexSituacao.setBounds(20, 263, 46, 14);
-		frmCadastroDeExemplar.getContentPane().add(lblexSituacao);
+		lblexSituacao.setBounds(10, 252, 46, 14);
+		panel.add(lblexSituacao);
 		
 		JComboBox exSituacao = new JComboBox();
+		exSituacao.setBounds(10, 277, 109, 22);
+		panel.add(exSituacao);
 		exSituacao.setModel(new DefaultComboBoxModel(new String[] {"Disponivel", "Reservado", "Emprestado"}));
 		exSituacao.setToolTipText("Disponivel\r\nReservado\r\nEmprestado\r\n");
-		exSituacao.setBounds(20, 288, 109, 22);
-		frmCadastroDeExemplar.getContentPane().add(exSituacao);
 		
 		textField = new JTextField();
+		textField.setBounds(10, 165, 109, 20);
+		panel.add(textField);
 		textField.setColumns(13);
-		textField.setBounds(20, 176, 109, 20);
-		frmCadastroDeExemplar.getContentPane().add(textField);
 		
 		JLabel lblexVolume_1 = new JLabel("Volume:");
-		lblexVolume_1.setBounds(20, 151, 46, 14);
-		frmCadastroDeExemplar.getContentPane().add(lblexVolume_1);
+		lblexVolume_1.setBounds(10, 140, 46, 14);
+		panel.add(lblexVolume_1);
 		
 		textField_1 = new JTextField();
+		textField_1.setBounds(129, 165, 109, 20);
+		panel.add(textField_1);
 		textField_1.setColumns(13);
-		textField_1.setBounds(139, 176, 109, 20);
-		frmCadastroDeExemplar.getContentPane().add(textField_1);
 		
 		JLabel lblexAno = new JLabel("Ano:");
-		lblexAno.setBounds(139, 151, 46, 14);
-		frmCadastroDeExemplar.getContentPane().add(lblexAno);
+		lblexAno.setBounds(129, 140, 46, 14);
+		panel.add(lblexAno);
 	}
 }

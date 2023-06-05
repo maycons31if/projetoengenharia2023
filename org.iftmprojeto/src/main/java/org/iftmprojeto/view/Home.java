@@ -8,22 +8,18 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JDesktopPane;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.FlowLayout;
+import java.awt.BorderLayout;
 
 public class Home {
 
 	private JFrame frmCadastroDeLivros;
-	private JTextField lvIsbn;
-	private JTextField lvTitulo;
-	private JLabel lblEdicao;
-	private JTextField lvEdicao;
-	private JLabel lblEditora;
-	private JTextField lvEditora;
-	private JLabel lblIdioma;
-	private JTextField lvIdioma;
-	private JLabel lblVolume;
-	private JTextField lvVolume;
-	private JButton btnNovo;
-	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -56,100 +52,55 @@ public class Home {
 		frmCadastroDeLivros.setTitle("Cadastro de Livros");
 		frmCadastroDeLivros.setBounds(100, 100, 524, 432);
 		frmCadastroDeLivros.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmCadastroDeLivros.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Cadastro de Livros");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(10, 11, 488, 14);
-		frmCadastroDeLivros.getContentPane().add(lblNewLabel);
+		JMenuBar menuBar = new JMenuBar();
+		frmCadastroDeLivros.setJMenuBar(menuBar);
 		
-		JLabel lblisbn = new JLabel("ISBN:");
-		lblisbn.setBounds(20, 45, 46, 14);
-		frmCadastroDeLivros.getContentPane().add(lblisbn);
+		JMenu Cadastros = new JMenu("Cadastro");
+		menuBar.add(Cadastros);
 		
-		lvIsbn = new JTextField();
-		lvIsbn.setBounds(20, 64, 109, 20);
-		frmCadastroDeLivros.getContentPane().add(lvIsbn);
-		lvIsbn.setColumns(13);
+		JMenuItem mntmNewMenuItem = new JMenuItem("Livros");
 		
-		JLabel lblTitulo = new JLabel("Titulo:");
-		lblTitulo.setBounds(139, 45, 46, 14);
-		frmCadastroDeLivros.getContentPane().add(lblTitulo);
+		frmCadastroDeLivros.getContentPane().setLayout(new BorderLayout(0, 0));
 		
-		lvTitulo = new JTextField();
-		lvTitulo.setColumns(13);
-		lvTitulo.setBounds(139, 64, 359, 20);
-		frmCadastroDeLivros.getContentPane().add(lvTitulo);
+		final JDesktopPane desktopPane = new JDesktopPane();
 		
-		lblEdicao = new JLabel("Edição:");
-		lblEdicao.setBounds(20, 95, 46, 14);
-		frmCadastroDeLivros.getContentPane().add(lblEdicao);
+		frmCadastroDeLivros.getContentPane().add(desktopPane, BorderLayout.CENTER);
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaLivro tela = new TelaLivro();
+				tela.setVisible(true);
+				desktopPane.add(tela);
+			}
+		});
+		Cadastros.add(mntmNewMenuItem);
 		
-		lvEdicao = new JTextField();
-		lvEdicao.setColumns(13);
-		lvEdicao.setBounds(20, 120, 109, 20);
-		frmCadastroDeLivros.getContentPane().add(lvEdicao);
+		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Exemplar");
+		mntmNewMenuItem_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaExemplar telae = new TelaExemplar();
+				telae.setVisible(true);
+				desktopPane.add(telae);
+			}
+		});
+		Cadastros.add(mntmNewMenuItem_2);
 		
-		lblEditora = new JLabel("Editora:");
-		lblEditora.setBounds(139, 95, 46, 14);
-		frmCadastroDeLivros.getContentPane().add(lblEditora);
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Aluno");
+		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaAluno telaa = new TelaAluno();
+				telaa.setVisible(true);
+				desktopPane.add(telaa);
+			}
+		});
+		Cadastros.add(mntmNewMenuItem_1);
 		
-		lvEditora = new JTextField();
-		lvEditora.setColumns(13);
-		lvEditora.setBounds(139, 120, 109, 20);
-		frmCadastroDeLivros.getContentPane().add(lvEditora);
-		
-		lblIdioma = new JLabel("Idioma:");
-		lblIdioma.setBounds(258, 95, 46, 14);
-		frmCadastroDeLivros.getContentPane().add(lblIdioma);
-		
-		lvIdioma = new JTextField();
-		lvIdioma.setColumns(13);
-		lvIdioma.setBounds(258, 120, 109, 20);
-		frmCadastroDeLivros.getContentPane().add(lvIdioma);
-		
-		lblVolume = new JLabel("Volume:");
-		lblVolume.setBounds(377, 95, 46, 14);
-		frmCadastroDeLivros.getContentPane().add(lblVolume);
-		
-		lvVolume = new JTextField();
-		lvVolume.setColumns(13);
-		lvVolume.setBounds(377, 120, 109, 20);
-		frmCadastroDeLivros.getContentPane().add(lvVolume);
-		
-		JButton btnSalvar = new JButton("Salvar");
-		btnSalvar.setBounds(113, 348, 89, 23);
-		frmCadastroDeLivros.getContentPane().add(btnSalvar);
-		
-		JButton btnEditar = new JButton("Editar");
-		btnEditar.setBounds(215, 348, 89, 23);
-		frmCadastroDeLivros.getContentPane().add(btnEditar);
-		
-		JButton btnExcluir = new JButton("Excluir");
-		btnExcluir.setBounds(310, 348, 89, 23);
-		frmCadastroDeLivros.getContentPane().add(btnExcluir);
-		
-		JButton btnSair = new JButton("Sair");
-		btnSair.setBounds(409, 348, 89, 23);
-		frmCadastroDeLivros.getContentPane().add(btnSair);
-		
-		btnNovo = new JButton("Novo");
-		btnNovo.setBounds(10, 348, 89, 23);
-		frmCadastroDeLivros.getContentPane().add(btnNovo);
-		
-		JPanel Imagem = new JPanel();
-		Imagem.setBounds(258, 154, 228, 183);
-		frmCadastroDeLivros.getContentPane().add(Imagem);
-		Imagem.setLayout(null);
-		
-		textField = new JTextField();
-		textField.setColumns(13);
-		textField.setBounds(20, 176, 109, 20);
-		frmCadastroDeLivros.getContentPane().add(textField);
-		
-		JLabel lblAno = new JLabel("Ano:");
-		lblAno.setBounds(20, 151, 46, 14);
-		frmCadastroDeLivros.getContentPane().add(lblAno);
+		JMenu mnNewMenu = new JMenu("Sair");
+		mnNewMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				   System.exit(0);
+			}
+		});
+		menuBar.add(mnNewMenu);
 	}
 }
