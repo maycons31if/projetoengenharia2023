@@ -95,7 +95,7 @@ public class Aluno {
 		textField_2.setBounds(20, 120, 110, 20);
 		panel.add(textField_2);
 		
-		JLabel lblalEndereco = new JLabel("Endereço:");
+		JLabel lblalEndereco = new JLabel("Endere\u00E7o:");
 		lblalEndereco.setBounds(258, 95, 177, 14);
 		panel.add(lblalEndereco);
 		
@@ -161,7 +161,7 @@ public class Aluno {
 		alSituacao.setBounds(409, 63, 60, 20);
 		panel.add(alSituacao);
 		
-		JLabel lblalSituacao = new JLabel("Situação:");
+		JLabel lblalSituacao = new JLabel("Situa\u00E7\u00E3o:");
 		lblalSituacao.setBounds(409, 45, 60, 14);
 		panel.add(lblalSituacao);
 		
