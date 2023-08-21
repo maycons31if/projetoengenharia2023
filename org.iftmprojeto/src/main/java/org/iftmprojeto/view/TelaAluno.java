@@ -155,9 +155,9 @@ public class TelaAluno extends JInternalFrame {
 		alSituacao.setBounds(409, 63, 60, 20);
 		panel.add(alSituacao);
 		
-		JLabel lblalSituação = new JLabel("Situação:");
-		lblalSituação.setBounds(409, 45, 60, 14);
-		panel.add(lblalSituação);
+		JLabel lblalSituacao = new JLabel("Situação:");
+		lblalSituacao.setBounds(409, 45, 60, 14);
+		panel.add(lblalSituacao);
 		
 		JLabel lblalTurno = new JLabel("Turno:");
 		lblalTurno.setBounds(20, 207, 109, 14);
