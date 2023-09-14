@@ -24,7 +24,7 @@ public class Programa {
 		em.persist(v2);
 		em.getTransaction().commit();
 		
-		
+		/*Teste commit*/
 		
 	}
 }
