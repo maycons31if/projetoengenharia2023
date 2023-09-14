@@ -50,7 +50,7 @@ public class TelaLivro extends JInternalFrame {
 		JLabel lblNewLabel = new JLabel("Cadastro de Livros");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel.setBounds(0, 0, 488, 14);
+		lblNewLabel.setBounds(0, 9, 488, 14);
 		panel.add(lblNewLabel);
 		
 		JLabel lblisbn = new JLabel("ISBN:");
