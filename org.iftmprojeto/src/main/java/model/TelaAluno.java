@@ -14,8 +14,12 @@ import javax.persistence.GenerationType;
 
 
 
+/**
+ * 
+ * @author bruno
+ *	O nome da classe não esta correta, deveria ser Aluno
+ */
 @Entity 
-
 public class TelaAluno implements Serializable {
 
 	

@@ -5,8 +5,12 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 
 
+/**
+ * 
+ * @author bruno
+ *	O nome da classe não esta correta, deveria ser Livro
+ */
 @Entity 
-
 public class TelaLivro  implements Serializable {
 
 	
