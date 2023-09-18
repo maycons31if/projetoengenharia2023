@@ -1,17 +1,20 @@
-package model;
+package livro;
 
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 
 /**
  * 
- * @author bruno
- *	O nome da classe não esta correta, deveria ser Livro
+ * @Maycon
+ *	O nome da classe nï¿½o esta correta, deveria ser Livro
  */
 @Entity 
-public class TelaLivro  implements Serializable {
+public class Livro  implements Serializable {
 
 	
 	/**
@@ -20,7 +23,11 @@ public class TelaLivro  implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	
+	@Id
 	
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	
+	private Integer idLivro;
 	private Integer isbn;
 	private String  titulo;
 	private Integer edicao;
@@ -31,9 +38,11 @@ public class TelaLivro  implements Serializable {
 	
 	
 	
-	public TelaLivro(Integer isbn, String titulo, Integer edicao, String editora, String idioma, Integer volume,
-			Integer ano) {
+	
+	public Livro(Integer id, Integer isbn, String titulo, Integer edicao, String editora, String idioma,
+			Integer volume, Integer ano) {
 		super();
+		this.id = id;
 		this.isbn = isbn;
 		this.titulo = titulo;
 		this.edicao = edicao;
@@ -42,6 +51,21 @@ public class TelaLivro  implements Serializable {
 		this.volume = volume;
 		this.ano = ano;
 	}
+
+
+
+
+	public Integer getId() {
+		return id;
+	}
+
+
+
+
+	public void setCod(Integer id) {
+		this.id = id;
+	}
+
 
 
 
@@ -51,9 +75,11 @@ public class TelaLivro  implements Serializable {
 
 
 
+
 	public void setIsbn(Integer isbn) {
 		this.isbn = isbn;
 	}
+ 
 
 
 
@@ -63,9 +89,11 @@ public class TelaLivro  implements Serializable {
 
 
 
+
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
+
 
 
 
@@ -75,9 +103,11 @@ public class TelaLivro  implements Serializable {
 
 
 
+
 	public void setEdicao(Integer edicao) {
 		this.edicao = edicao;
 	}
+
 
 
 
@@ -87,9 +117,11 @@ public class TelaLivro  implements Serializable {
 
 
 
+
 	public void setEditora(String editora) {
 		this.editora = editora;
 	}
+
 
 
 
@@ -99,9 +131,11 @@ public class TelaLivro  implements Serializable {
 
 
 
+
 	public void setIdioma(String idioma) {
 		this.idioma = idioma;
 	}
+
 
 
 
@@ -111,9 +145,11 @@ public class TelaLivro  implements Serializable {
 
 
 
+
 	public void setVolume(Integer volume) {
 		this.volume = volume;
 	}
+
 
 
 
@@ -123,18 +159,24 @@ public class TelaLivro  implements Serializable {
 
 
 
+
 	public void setAno(Integer ano) {
 		this.ano = ano;
+	}
+
+
+
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	
 	
 	
-
-	
-
-
-
 	
 	
 	
-}
+	
+
+	}
+	

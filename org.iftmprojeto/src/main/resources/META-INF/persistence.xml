@@ -6,7 +6,7 @@
 	<persistence-unit name="library" transaction-type="RESOURCE_LOCAL">
 		<properties>
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://localhost/aulajpa?useSSL=false&amp;serverTimezone=UTC" />
+				value="jdbc:mysql://localhost/library?useSSL=false&amp;serverTimezone=UTC" />
 			<property name="javax.persistence.jdbc.driver"
 				value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.user" value="root" />
