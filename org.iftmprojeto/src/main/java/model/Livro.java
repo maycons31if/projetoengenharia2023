@@ -1,4 +1,4 @@
-package livro;
+package model;
 
 import java.io.Serializable;
 
@@ -14,6 +14,11 @@ import javax.persistence.Id;
  *	O nome da classe n�o esta correta, deveria ser Livro
  */
 @Entity 
+
+
+
+
+
 public class Livro  implements Serializable {
 
 	
@@ -27,7 +32,7 @@ public class Livro  implements Serializable {
 	
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
-	private Integer idLivro;
+	private Integer id;
 	private Integer isbn;
 	private String  titulo;
 	private Integer edicao;
@@ -175,7 +180,7 @@ public class Livro  implements Serializable {
 	
 	
 	
-	
+	public Livro() {	}	
 	
 
 	}
