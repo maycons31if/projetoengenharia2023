@@ -42,6 +42,8 @@ public class Livro  implements Serializable {
 	private Integer ano;
 	
 	
+	public Livro() {	}	
+	
 	
 	
 	public Livro(Integer id, Integer isbn, String titulo, Integer edicao, String editora, String idioma,
@@ -180,8 +182,5 @@ public class Livro  implements Serializable {
 	
 	
 	
-	public Livro() {	}	
-	
-
 	}
 	

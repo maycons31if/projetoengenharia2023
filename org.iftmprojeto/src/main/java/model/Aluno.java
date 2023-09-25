@@ -56,7 +56,9 @@ public class Aluno implements Serializable {
 		this.curso = curso;
 		this.turno = turno;
 	}
-
+	
+	
+	public Aluno() {	}	
 
 	public Integer getId() {
 		return id;
