@@ -11,7 +11,7 @@ import javax.persistence.Id;
 /**
  * 
  * @Maycon
- *	O nome da classe n�o esta correta, deveria ser Livro
+ *	
  */
 @Entity 
 
