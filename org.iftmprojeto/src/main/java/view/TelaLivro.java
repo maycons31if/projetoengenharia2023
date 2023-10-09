@@ -9,15 +9,18 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaLivro extends JInternalFrame {
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
+	private JTextField liisbn;
+	private JTextField lititulo;
+	private JTextField liedicao;
+	private JTextField lieditora;
+	private JTextField liidioma;
+	private JTextField livolume;
+	private JTextField liano;
+	private JTextField liid;
 
 	/**
 	 * Launch the application.
@@ -39,107 +42,122 @@ public class TelaLivro extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public TelaLivro() {
-		setBounds(100, 100, 509, 398);
+		setBounds(100, 100, 509, 442);
 		getContentPane().setLayout(null);
-		
+
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
-		panel.setBounds(0, 0, 488, 360);
+		panel.setBounds(0, 0, 488, 412);
 		getContentPane().add(panel);
-		
+
 		JLabel lblNewLabel = new JLabel("Cadastro de Livros");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel.setBounds(0, 9, 488, 14);
+		lblNewLabel.setBounds(10, 22, 139, 14);
 		panel.add(lblNewLabel);
-		
-		JLabel lblisbn = new JLabel("ISBN:");
-		lblisbn.setBounds(10, 34, 46, 14);
-		panel.add(lblisbn);
-		
-		textField = new JTextField();
-		textField.setColumns(13);
-		textField.setBounds(10, 53, 109, 20);
-		panel.add(textField);
-		
-		JLabel lblTitulo = new JLabel("Titulo:");
-		lblTitulo.setBounds(129, 34, 46, 14);
-		panel.add(lblTitulo);
-		
-		textField_1 = new JTextField();
-		textField_1.setColumns(13);
-		textField_1.setBounds(129, 53, 359, 20);
-		panel.add(textField_1);
-		
-		JLabel lblEdicao = new JLabel("Edição:");
-		lblEdicao.setBounds(10, 84, 46, 14);
-		panel.add(lblEdicao);
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(13);
-		textField_2.setBounds(10, 109, 109, 20);
-		panel.add(textField_2);
-		
-		JLabel lblEditora = new JLabel("Editora:");
-		lblEditora.setBounds(129, 84, 46, 14);
-		panel.add(lblEditora);
-		
-		textField_3 = new JTextField();
-		textField_3.setColumns(13);
-		textField_3.setBounds(129, 109, 109, 20);
-		panel.add(textField_3);
-		
-		JLabel lblIdioma = new JLabel("Idioma:");
-		lblIdioma.setBounds(248, 84, 46, 14);
-		panel.add(lblIdioma);
-		
-		textField_4 = new JTextField();
-		textField_4.setColumns(13);
-		textField_4.setBounds(248, 109, 109, 20);
-		panel.add(textField_4);
-		
-		JLabel lblVolume = new JLabel("Volume:");
-		lblVolume.setBounds(367, 84, 46, 14);
-		panel.add(lblVolume);
-		
-		textField_5 = new JTextField();
-		textField_5.setColumns(13);
-		textField_5.setBounds(367, 109, 109, 20);
-		panel.add(textField_5);
-		
+
+		JLabel lblliIsbn = new JLabel("ISBN:");
+		lblliIsbn.setBounds(10, 53, 46, 14);
+		panel.add(lblliIsbn);
+
+		liisbn = new JTextField();
+		liisbn.setColumns(13);
+		liisbn.setBounds(10, 72, 109, 20);
+		panel.add(liisbn);
+
+		JLabel lbliTitulo = new JLabel("Titulo:");
+		lbliTitulo.setBounds(129, 53, 46, 14);
+		panel.add(lbliTitulo);
+
+		lititulo = new JTextField();
+		lititulo.setColumns(13);
+		lititulo.setBounds(129, 72, 359, 20);
+		panel.add(lititulo);
+
+		JLabel lblliEdicao = new JLabel("Edição:");
+		lblliEdicao.setBounds(10, 103, 46, 14);
+		panel.add(lblliEdicao);
+
+		liedicao = new JTextField();
+		liedicao.setColumns(13);
+		liedicao.setBounds(10, 128, 109, 20);
+		panel.add(liedicao);
+
+		JLabel lblliEditora = new JLabel("Editora:");
+		lblliEditora.setBounds(129, 103, 46, 14);
+		panel.add(lblliEditora);
+
+		lieditora = new JTextField();
+		lieditora.setColumns(13);
+		lieditora.setBounds(129, 128, 109, 20);
+		panel.add(lieditora);
+
+		JLabel lblIiIdioma = new JLabel("Idioma:");
+		lblIiIdioma.setBounds(248, 103, 46, 14);
+		panel.add(lblIiIdioma);
+
+		liidioma = new JTextField();
+		liidioma.setColumns(13);
+		liidioma.setBounds(248, 128, 109, 20);
+		panel.add(liidioma);
+
+		JLabel lblliVolume = new JLabel("Volume:");
+		lblliVolume.setBounds(367, 103, 46, 14);
+		panel.add(lblliVolume);
+
+		livolume = new JTextField();
+		livolume.setColumns(13);
+		livolume.setBounds(367, 128, 109, 20);
+		panel.add(livolume);
+
 		JButton btnSalvar = new JButton("Salvar");
-		btnSalvar.setBounds(103, 337, 89, 23);
+		btnSalvar.setBounds(106, 378, 89, 23);
 		panel.add(btnSalvar);
-		
-		JButton btnEditar = new JButton("Editar");
-		btnEditar.setBounds(205, 337, 89, 23);
-		panel.add(btnEditar);
-		
+
+		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setBounds(205, 378, 89, 23);
+		panel.add(btnAlterar);
+
 		JButton btnExcluir = new JButton("Excluir");
-		btnExcluir.setBounds(300, 337, 89, 23);
+		btnExcluir.setBounds(300, 378, 89, 23);
 		panel.add(btnExcluir);
-		
+
 		JButton btnSair = new JButton("Sair");
-		btnSair.setBounds(399, 337, 89, 23);
+		btnSair.setBounds(399, 378, 89, 23);
 		panel.add(btnSair);
-		
-		JButton btnNovo = new JButton("Novo");
-		btnNovo.setBounds(0, 337, 89, 23);
-		panel.add(btnNovo);
-		
-		JPanel Imagem = new JPanel();
-		Imagem.setLayout(null);
-		Imagem.setBounds(248, 143, 228, 183);
-		panel.add(Imagem);
-		
-		textField_6 = new JTextField();
-		textField_6.setColumns(13);
-		textField_6.setBounds(10, 165, 109, 20);
-		panel.add(textField_6);
-		
-		JLabel lblAno = new JLabel("Ano:");
-		lblAno.setBounds(10, 140, 46, 14);
-		panel.add(lblAno);
+
+		JButton btnInserir = new JButton("Inserir");
+		btnInserir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+		btnInserir.setBounds(7, 378, 89, 23);
+		panel.add(btnInserir);
+
+		JPanel lifoto = new JPanel();
+		lifoto.setLayout(null);
+		lifoto.setBounds(248, 184, 228, 183);
+		panel.add(lifoto);
+
+		liano = new JTextField();
+		liano.setColumns(13);
+		liano.setBounds(10, 184, 109, 20);
+		panel.add(liano);
+
+		JLabel lblliAno = new JLabel("Ano:");
+		lblliAno.setBounds(10, 159, 46, 14);
+		panel.add(lblliAno);
+
+		liid = new JTextField();
+		liid.setEditable(false);
+		liid.setColumns(13);
+		liid.setBounds(378, 22, 98, 20);
+		panel.add(liid);
+
+		JLabel lblliId = new JLabel("ID:");
+		lblliId.setBounds(350, 25, 39, 14);
+		panel.add(lblliId);
 
 	}
 

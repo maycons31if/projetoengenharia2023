@@ -163,6 +163,12 @@ public class Aluno implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+
+	public char[] getNome() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }

@@ -51,10 +51,10 @@ public class TelaExemplar extends JInternalFrame {
 		panel.setBounds(0, 0, 488, 360);
 		getContentPane().add(panel);
 		
-		JLabel lblNewLabel = new JLabel("Cadastro de Exemplares");
+		JLabel lblNewLabel = new JLabel("Cadastro de Exemplar");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel.setBounds(10, 11, 488, 14);
+		lblNewLabel.setBounds(10, 11, 182, 14);
 		panel.add(lblNewLabel);
 		
 		JLabel lblexisbn = new JLabel("ISBN:");

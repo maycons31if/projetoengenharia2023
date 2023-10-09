@@ -8,9 +8,12 @@ import model.Aluno;
 public class Programa {
 	public static void main(String[] args) {
 		//inserindo
-		Aluno novo = new Aluno(null, "12345678", "Maycon");		
+		Aluno novo = new Aluno(null, "12345678", "Maycon", "Ativo", "3432180000", "38400000", "Rua do faculdade", "01021990", "Direito", "Noturno");		
 		AlunoControle controle = new AlunoControle();	
 		controle.inserir(novo);
+		
+		// Aluno(Integer id, Integer matricula, String aluno, String situacao, Integer telefone, Integer cep,String endereco, Integer dtnasc, String curso, String turno
+		
 		
 		//buscando
 		novo = controle.buscarPorId(1); //o id 3 precisa existir no banco, modifique o valor
@@ -64,4 +67,4 @@ public class Programa {
 	*/
 	
 	
-	}
+	
