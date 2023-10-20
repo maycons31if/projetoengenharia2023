@@ -165,6 +165,9 @@ public class Aluno implements Serializable {
 	}
 
 
+	/*
+ 		criou esse código abaixo sem querer acredito.
+	*/
 	public char[] getNome() {
 		// TODO Auto-generated method stub
 		return null;
