@@ -8,7 +8,7 @@ import model.Aluno;
 public class Programa {
 	public static void main(String[] args) {
 		//inserindo
-		Aluno novo = new Aluno(null, "12345678", "Maycon", "Ativo", "3432180000", "38400000", "Rua do faculdade", "01021990", "Direito", "Noturno");		
+		Aluno novo = new Aluno(null, 12345678, "Maycon", "Ativo", 343218000, 38400000, "Rua do faculdade", 1011212, "Direito", "Noturno");		
 		AlunoControle controle = new AlunoControle();	
 		controle.inserir(novo);
 		
@@ -20,7 +20,7 @@ public class Programa {
 		System.out.println(novo.getNome()); // substitua por um método get do seu projeto
 		
 		//modificando
-		novo.setMatricula ("87654321"); // no seu caso utilize um método set do seu projeto
+		novo.setMatricula (87654321); // no seu caso utilize um método set do seu projeto
 		controle.alterar(novo);
 		
 		//buscar todos
@@ -31,13 +31,13 @@ public class Programa {
 		}
 		
 		//excluir
-		controle.excluir(objetos.get(0));
+		//controle.excluir(objetos.get(0));
 		
 		//excluir por id
-		controle.excluirPorId(1); //o id 3 precisa existir no banco, modifique o valor	
+		//controle.excluirPorId(1); //o id 3 precisa existir no banco, modifique o valor	
+	
 	}
-
-
+}
 
 
 /*
@@ -64,7 +64,7 @@ public class Programa {
 		/*em.close();
 		emf.close();*/
 	
-	*/
+	
 	
 	
 	

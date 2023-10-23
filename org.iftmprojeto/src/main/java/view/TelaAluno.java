@@ -113,6 +113,12 @@ public class TelaAluno extends JInternalFrame {
 		panel.add(alcep);
 		
 		JButton btnSalvar = new JButton("Salvar");
+		btnSalvar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Integer matricula = Integer.parseInt(alaluno.getText());
+			}
+		});
 		btnSalvar.setBounds(113, 348, 85, 23);
 		panel.add(btnSalvar);
 		
