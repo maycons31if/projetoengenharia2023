@@ -7,6 +7,10 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+
+import control.AlunoControle;
+import model.Aluno;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -14,6 +18,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class TelaAluno extends JInternalFrame {
+	private Aluno objeto;
+	private AlunoControle controle = new AlunoControle();
+	
 	private JTextField almatricula;
 	private JTextField alaluno;
 	private JTextField altelefone;
@@ -134,14 +141,14 @@ public class TelaAluno extends JInternalFrame {
 		btnExcluir.setBounds(310, 348, 85, 23);
 		panel.add(btnExcluir);
 		
-		JButton btnSair = new JButton("Sair");
-		btnSair.addActionListener(new ActionListener() {
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				   System.exit(0);
 			}
 		});
-		btnSair.setBounds(405, 348, 85, 23);
-		panel.add(btnSair);
+		btnConsultar.setBounds(405, 348, 85, 23);
+		panel.add(btnConsultar);
 		
 		JButton btnInserir = new JButton("Inserir");
 		btnInserir.addActionListener(new ActionListener() {

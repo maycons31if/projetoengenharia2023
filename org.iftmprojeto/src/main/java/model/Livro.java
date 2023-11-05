@@ -32,7 +32,7 @@ public class Livro  implements Serializable {
 	
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
-	private Integer id;
+	private String id;
 	private Integer isbn;
 	private String  titulo;
 	private Integer edicao;
@@ -40,9 +40,12 @@ public class Livro  implements Serializable {
 	private String  idioma;
 	private Integer volume;
 	private Integer ano;
+
+
+	public Object liid;
 	
 	
-	public Livro() {	}	
+	public Livro(Object object, String string, String string2, String string3, String string4, String string5, String string6, String string7) {	}	
 	
 	
 	
@@ -62,7 +65,7 @@ public class Livro  implements Serializable {
 
 
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -167,8 +170,8 @@ public class Livro  implements Serializable {
 
 
 
-	public void setAno(Integer ano) {
-		this.ano = ano;
+	public void setAno(String string) {
+		this.ano = string;
 	}
 
 
@@ -176,6 +179,13 @@ public class Livro  implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+
+
+	public String getNome() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
