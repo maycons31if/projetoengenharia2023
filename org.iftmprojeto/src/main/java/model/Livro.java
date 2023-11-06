@@ -32,7 +32,7 @@ public class Livro  implements Serializable {
 	
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
-	private String id;
+	private Integer id;
 	private Integer isbn;
 	private String  titulo;
 	private Integer edicao;
@@ -65,7 +65,7 @@ public class Livro  implements Serializable {
 
 
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -170,8 +170,8 @@ public class Livro  implements Serializable {
 
 
 
-	public void setAno(String string) {
-		this.ano = string;
+	public void setAno(Integer ano) {
+		this.ano = ano;
 	}
 
 
@@ -183,10 +183,7 @@ public class Livro  implements Serializable {
 
 
 
-	public String getNome() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	
 	
 	

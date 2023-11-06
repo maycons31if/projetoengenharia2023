@@ -127,13 +127,13 @@ public class TelaLivro extends JInternalFrame {
 
 				if (objeto != null) {
 
-					objeto.setIsbn(liisbn.getText());
+					objeto.setIsbn(Integer.parseInt(liisbn.getText()));
 					objeto.setTitulo(lititulo.getText());
-					objeto.setEdicao(liedicao.getText());
+					objeto.setEdicao(Integer.parseInt(liedicao.getText()));
 					objeto.setEditora(lieditora.getText());
 					objeto.setIdioma(liidioma.getText());
-					objeto.setVolume(livolume.getText());
-					objeto.setAno(liano.getText());
+					objeto.setVolume(Integer.parseInt(livolume.getText()));
+					objeto.setAno(Integer.parseInt(liano.getText()));
 
 					controle.alterar(objeto);
 
@@ -196,16 +196,16 @@ public class TelaLivro extends JInternalFrame {
 				objeto = controle.buscarPorId(valor);
 				if (objeto != null) {
 
-					liid.getText.setText(String.valueOf(objeto.getId()));
-					liisbn.setText(objeto.getNome());
-					lititulo.setText(objeto.getNome());
-					liedicao.setText(objeto.getNome());
-					lieditora.setText(objeto.getNome());
-					liidioma.setText(objeto.getNome());
-					livolume.setText(objeto.getNome());
-					liano.setText(objeto.getNome());
+					liid.setText(String.valueOf(objeto.getId()));
+					liisbn.setText(String.valueOf(objeto.getIsbn()));
+					lititulo.setText(String.valueOf(objeto.getTitulo()));
+					liedicao.setText(String.valueOf(objeto.getEdicao()));
+					lieditora.setText(String.valueOf(objeto.getEditora()));
+					liidioma.setText(String.valueOf(objeto.getIdioma()));
+					livolume.setText(String.valueOf(objeto.getVolume()));
+					liano.setText(String.valueOf(objeto.getAno()));
 
-					liid.setText(objeto.getId());
+					
 
 				} else {
 
@@ -254,7 +254,7 @@ public class TelaLivro extends JInternalFrame {
 
 		JPanel lifoto = new JPanel();
 		lifoto.setLayout(null);
-		lifoto.setBounds(248, 184, 228, 183);
+		lifoto.setBounds(205, 184, 228, 183);
 		panel.add(lifoto);
 
 		liano = new JTextField();

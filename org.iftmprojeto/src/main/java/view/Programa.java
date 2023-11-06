@@ -4,6 +4,8 @@ import java.util.Iterator;
 import java.util.List;
 import control.AlunoControle;
 import model.Aluno;
+import model.Livro;
+import control.LivroControle;
 
 public class Programa {
 	public static void main(String[] args) {
