@@ -16,7 +16,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class TelaLivro extends JInternalFrame {
-
+	private Livro objeto;
+	private LivroControle controle = LivroControle();
+	
+	
+	
+	
+	
+	
 	private static final long serialVersionUID = 1L;
 	private Livro objeto;
 	private LivroControle controle = new LivroControle();
@@ -156,7 +163,7 @@ public class TelaLivro extends JInternalFrame {
 
 				if (objeto != null) {
 
-					controle.excluir(objeto);
+					controle1.excluir(objeto);
 
 					objeto = null;
 
@@ -193,7 +200,7 @@ public class TelaLivro extends JInternalFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				Integer valor = Integer.parseInt(liid.getText());
-				objeto = controle.buscarPorId(valor);
+				objeto = controle1.buscarPorId(valor);
 				if (objeto != null) {
 
 					liid.setText(String.valueOf(objeto.getId()));
@@ -229,11 +236,11 @@ public class TelaLivro extends JInternalFrame {
 		btnInserir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				objeto = new Livro(null, liisbn.getText(), lititulo.getText(), liedicao.getText(), lieditora.getText(),
-						liidioma.getText(), livolume.getText(), liano.getText());
+				objeto = new Livro(null, liisbn.getText(), lititulo.getText(), liedicao.getText(), lieditora.getText(), liidioma.getText(), livolume.getText(), liano.getText());
 				controle.inserir(objeto);
 				JOptionPane.showMessageDialog(null, "Livro Cadastrado.");
 				liid.setText(String.valueOf(objeto.getId()));
+				
 				/*
 				 * 
 				 * Livro v = new Livro( null, "9788533302273", "Programacao Java", "2", "IFTM",
@@ -287,11 +294,11 @@ public class TelaLivro extends JInternalFrame {
 	}
 
 	public LivroControle getControle() {
-		return controle;
+		return controle1;
 	}
 
 	public void setControle(LivroControle controle) {
-		this.controle = controle;
+		this.controle1 = controle;
 	}
 
 	public JTextField getLiisbn() {
