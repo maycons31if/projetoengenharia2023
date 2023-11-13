@@ -10,7 +10,12 @@ import control.LivroControle;
 public class Programa {
 	public static void main(String[] args) {
 		//inserindo
+<<<<<<< HEAD
+
+		Aluno novo = new Aluno(null, 12345678, "Maycon", "Ativo", 343218000, 38400000, "Rua do faculdade", 0101111, "Direito", "Noturno");		
+=======
 		Aluno novo = new Aluno(null, 12345678, "Maycon", "Ativo", 343218000, 38400000, "Rua do faculdade", 1011212, "Direito", "Noturno");		
+>>>>>>> branch 'main' of https://github.com/maycons31if/projetoengenharia2023.git
 		AlunoControle controle = new AlunoControle();	
 		controle.inserir(novo);
 		
@@ -19,11 +24,16 @@ public class Programa {
 		
 		//buscando
 		novo = controle.buscarPorId(1); //o id 3 precisa existir no banco, modifique o valor
-		System.out.println(novo.getNome()); // substitua por um método get do seu projeto
+		//System.out.println(novo.getNome()); // substitua por um método get do seu projeto
 		
 		//modificando
+<<<<<<< HEAD
+		//novo.setMatricula (87654321); // no seu caso utilize um método set do seu projeto
+		//controle.alterar(novo);
+=======
 		novo.setMatricula (87654321); // no seu caso utilize um método set do seu projeto
 		controle.alterar(novo);
+>>>>>>> branch 'main' of https://github.com/maycons31if/projetoengenharia2023.git
 		
 		//buscar todos
 		List<Aluno> objetos = controle.buscarTodos();
@@ -37,9 +47,16 @@ public class Programa {
 		
 		//excluir por id
 		//controle.excluirPorId(1); //o id 3 precisa existir no banco, modifique o valor	
+<<<<<<< HEAD
+=======
 	
+>>>>>>> branch 'main' of https://github.com/maycons31if/projetoengenharia2023.git
 	}
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> branch 'main' of https://github.com/maycons31if/projetoengenharia2023.git
 
 
 /*
@@ -66,7 +83,10 @@ public class Programa {
 		/*em.close();
 		emf.close();*/
 	
+<<<<<<< HEAD
+=======
 	
 	
+>>>>>>> branch 'main' of https://github.com/maycons31if/projetoengenharia2023.git
 	
 	
