@@ -7,8 +7,8 @@ import model.Aluno;
 import model.Livro;
 import control.LivroControle;
 
-public class Programa {
-	public static void main(String[] args) {
+public class Programa {}
+/*	public static void main(String[] args) {
 		//inserindo
 <<<<<<< HEAD
 
@@ -59,7 +59,7 @@ public class Programa {
 >>>>>>> branch 'main' of https://github.com/maycons31if/projetoengenharia2023.git
 
 
-/*
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -81,12 +81,11 @@ public class Programa {
 		em.getTransaction().commit();
 		
 		/*em.close();
-		emf.close();*/
+		emf.close();
 	
 <<<<<<< HEAD
 =======
 	
 	
 >>>>>>> branch 'main' of https://github.com/maycons31if/projetoengenharia2023.git
-	
-	
+	*/
