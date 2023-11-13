@@ -56,7 +56,7 @@ public class Aluno implements Serializable {
 	}
 	
 	
-	public Aluno() {	}	
+	public Aluno(Object object, String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, Object object2) {	}	
 
 	public Integer getId() {
 		return id;
@@ -160,6 +160,41 @@ public class Aluno implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+
+	public String alFoto() {
+		return null;
+	}
+
+
+	public void alSituacao(String text) {
+		
+	}
+
+
+	public void alNascimento(int parseInt) {
+	}
+
+
+	public static Object getText() {
+		return null;
+	}
+
+
+	public void alFoto(Object text) {
+		
+	}
+
+
+	public char[] getNascimento() {
+		return null;
+	}
+
+
+	public void setEndereco(int parseInt) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

@@ -10,6 +10,8 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaExemplar extends JInternalFrame {
 	private JTextField textField;
@@ -127,6 +129,14 @@ public class TelaExemplar extends JInternalFrame {
 		panel.add(btnExcluir);
 		
 		JButton btnSair = new JButton("Sair");
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				Runtime.getRuntime().exit(1);
+				//System.exit(0);
+
+			}
+		});
 		btnSair.setBounds(399, 337, 89, 23);
 		panel.add(btnSair);
 		

@@ -14,11 +14,6 @@ import javax.persistence.Id;
  *	
  */
 @Entity 
-
-
-
-
-
 public class Livro  implements Serializable {
 
 	
@@ -42,10 +37,10 @@ public class Livro  implements Serializable {
 	private Integer ano;
 
 
-	public Object liid;
+	//public Object liid;
 	
 	
-	public Livro(Object object, String string, String string2, String string3, String string4, String string5, String string6, String string7) {	}	
+	public Livro() {	}	
 	
 	
 	
@@ -62,6 +57,13 @@ public class Livro  implements Serializable {
 		this.ano = ano;
 	}
 
+
+
+
+	public Livro(Object object, String text, String text2, String text3, String text4, String text5, String text6,
+			String text7) {
+		// TODO Auto-generated constructor stub
+	}
 
 
 

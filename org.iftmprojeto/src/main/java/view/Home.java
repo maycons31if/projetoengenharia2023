@@ -51,7 +51,7 @@ public class Home {
 	private void initialize() {
 		frmCadastroDeLivros = new JFrame();
 		frmCadastroDeLivros.setTitle("Cadastro de Livros");
-		frmCadastroDeLivros.setBounds(100, 100, 524, 432);
+		frmCadastroDeLivros.setBounds(100, 100, 704, 575);
 		frmCadastroDeLivros.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JMenuBar menuBar = new JMenuBar();

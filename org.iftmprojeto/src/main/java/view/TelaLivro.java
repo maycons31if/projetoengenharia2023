@@ -17,7 +17,7 @@ import java.awt.event.ActionEvent;
 
 public class TelaLivro extends JInternalFrame {
 	private Livro objeto;
-	private LivroControle controle = LivroControle();
+	private LivroControle controle = getControle();
 	
 	
 	
@@ -25,8 +25,8 @@ public class TelaLivro extends JInternalFrame {
 	
 	
 	private static final long serialVersionUID = 1L;
-	private Livro objeto;
-	private LivroControle controle = new LivroControle();
+	//private Livro objeto;
+	//private LivroControle controle = new LivroControle();
 	private JTextField liid;
 	private JTextField liisbn;
 	private JTextField lititulo;
@@ -163,7 +163,7 @@ public class TelaLivro extends JInternalFrame {
 
 				if (objeto != null) {
 
-					controle1.excluir(objeto);
+					controle.excluir(objeto);
 
 					objeto = null;
 
@@ -200,7 +200,7 @@ public class TelaLivro extends JInternalFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				Integer valor = Integer.parseInt(liid.getText());
-				objeto = controle1.buscarPorId(valor);
+				objeto = controle.buscarPorId(valor);
 				if (objeto != null) {
 
 					liid.setText(String.valueOf(objeto.getId()));
@@ -231,6 +231,9 @@ public class TelaLivro extends JInternalFrame {
 		});
 		btnConsultar.setBounds(399, 378, 89, 23);
 		panel.add(btnConsultar);
+		
+		
+		
 
 		JButton btnInserir = new JButton("Inserir");
 		btnInserir.addActionListener(new ActionListener() {
@@ -241,21 +244,11 @@ public class TelaLivro extends JInternalFrame {
 				JOptionPane.showMessageDialog(null, "Livro Cadastrado.");
 				liid.setText(String.valueOf(objeto.getId()));
 				
-				/*
-				 * 
-				 * Livro v = new Livro( null, "9788533302273", "Programacao Java", "2", "IFTM",
-				 * "portugues", "1", "2023");
-				 * 
-				 * 
-				 * 
-				 * private JTextField liid; private JTextField liisbn; private JTextField
-				 * lititulo; private JTextField liedicao; private JTextField lieditora; private
-				 * JTextField liidioma; private JTextField livolume; private JTextField liano;
-				 * 
-				 * 
-				 */
-			}
+						}
 		});
+		
+		
+		
 		btnInserir.setBounds(7, 378, 89, 23);
 		panel.add(btnInserir);
 
@@ -294,11 +287,11 @@ public class TelaLivro extends JInternalFrame {
 	}
 
 	public LivroControle getControle() {
-		return controle1;
+		return controle;
 	}
 
 	public void setControle(LivroControle controle) {
-		this.controle1 = controle;
+		this.controle = controle;
 	}
 
 	public JTextField getLiisbn() {

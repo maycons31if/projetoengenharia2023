@@ -21,6 +21,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class TelaAluno extends JInternalFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	protected static final JLabel alSituacao = null;
+	protected static final JLabel alFoto = null;
 	private Aluno objeto;
 	private TelaAluno controle = new TelaAluno();
 	
@@ -148,12 +154,11 @@ public class TelaAluno extends JInternalFrame {
 					objeto.alNascimento(Integer.parseInt(alNascimento.getText()));
 					objeto.setCurso(alCurso.getText());
 					objeto.setTurno(alTurno.getText());
-					objeto.alFoto(alFoto.getText());
+					objeto.alFoto(Aluno.getText());
 
-					
-							
 					controle.alterar(objeto);
 					JOptionPane.showMessageDialog(null, "Aluno Atualizado com sucesso.");
+
 				}else {
 					JOptionPane.showMessageDialog(null, "Não foi realizado Alteração.");
 				}
@@ -183,7 +188,6 @@ public class TelaAluno extends JInternalFrame {
 			alNascimento.setText("");
 			alCurso.setText("");
 			alTurno.setText("");
-			alFoto.setText("");
 
 			
 			
@@ -252,7 +256,7 @@ public class TelaAluno extends JInternalFrame {
 					objeto = new Aluno(null, alMatricula.getText(), alNome.getText(), alSituacao.getText(), alTelefone.getText(), alCep.getText(), alEndereco.getText(), alNascimento.getText(), alCurso.getText(), alTurno.getText(), null );
 					controle.inserir(objeto);
 					JOptionPane.showMessageDialog(null, "Aluno Cadastrado.");
-					alId.setText(String.valueOf(objeto.getalId()));
+					alId.setText(String.valueOf(objeto.getId()));
 					
 					
 			
@@ -260,6 +264,8 @@ public class TelaAluno extends JInternalFrame {
 			
 			}
 		});
+		
+		
 		btnInserir.setBounds(10, 348, 85, 23);
 		panel.add(btnInserir);
 		
@@ -310,5 +316,20 @@ public class TelaAluno extends JInternalFrame {
 		alId.setBounds(388, 11, 98, 20);
 		panel.add(alId);
 
+	}
+
+	protected void alterar(Aluno objeto2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	protected void inserir(Aluno objeto2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	protected void excluir(Aluno objeto2) {
+		// TODO Auto-generated method stub
+		
 	}
 }
