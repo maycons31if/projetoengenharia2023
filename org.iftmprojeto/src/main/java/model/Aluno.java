@@ -27,8 +27,9 @@ public class Aluno implements Serializable {
 	@Id  /*chave primaria*/	
 	@GeneratedValue(strategy=GenerationType.IDENTITY)	
 	private Integer id;
+	
 	private Integer matricula;
-	private String aluno;
+	private String nome;
 	private String situacao;
 	private Integer telefone;
 	private Integer cep;
@@ -39,12 +40,12 @@ public class Aluno implements Serializable {
 	private String turno;
 	
 	
-	public Aluno(Integer id, Integer matricula, String aluno, String situacao, Integer telefone, Integer cep,
+	public Aluno(Integer id, Integer matricula, String nome, String situacao, Integer telefone, Integer cep,
 			String endereco, Integer dtnasc, String curso, String turno) {
 		super();
 		this.id = id;
 		this.matricula = matricula;
-		this.aluno = aluno;
+		this.nome = nome;
 		this.situacao = situacao;
 		this.telefone = telefone;
 		this.cep = cep;
@@ -77,13 +78,13 @@ public class Aluno implements Serializable {
 	}
 
 
-	public String getAluno() {
-		return aluno;
+	public String getNome() {
+		return nome;
 	}
 
 
-	public void setAluno(String aluno) {
-		this.aluno = aluno;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 
@@ -162,13 +163,7 @@ public class Aluno implements Serializable {
 	}
 
 
-	/*
- 		criou esse código abaixo sem querer acredito.
-	*/
-	public char[] getNome() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	
 	
 }

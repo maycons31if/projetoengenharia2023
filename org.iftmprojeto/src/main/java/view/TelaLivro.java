@@ -5,14 +5,29 @@ import java.awt.EventQueue;
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import control.LivroControle;
+import model.Livro;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class TelaLivro extends JInternalFrame {
+	private Livro objeto;
+	private LivroControle controle = LivroControle();
+	
+	
+	
+	
+	
+	
+	private static final long serialVersionUID = 1L;
+	private Livro objeto;
+	private LivroControle controle = new LivroControle();
+	private JTextField liid;
 	private JTextField liisbn;
 	private JTextField lititulo;
 	private JTextField liedicao;
@@ -20,7 +35,6 @@ public class TelaLivro extends JInternalFrame {
 	private JTextField liidioma;
 	private JTextField livolume;
 	private JTextField liano;
-	private JTextField liid;
 
 	/**
 	 * Launch the application.
@@ -115,21 +129,131 @@ public class TelaLivro extends JInternalFrame {
 		panel.add(btnSalvar);
 
 		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				if (objeto != null) {
+
+					objeto.setIsbn(Integer.parseInt(liisbn.getText()));
+					objeto.setTitulo(lititulo.getText());
+					objeto.setEdicao(Integer.parseInt(liedicao.getText()));
+					objeto.setEditora(lieditora.getText());
+					objeto.setIdioma(liidioma.getText());
+					objeto.setVolume(Integer.parseInt(livolume.getText()));
+					objeto.setAno(Integer.parseInt(liano.getText()));
+
+					controle.alterar(objeto);
+
+					JOptionPane.showMessageDialog(null, "Livro alterado com sucesso.");
+
+				} else {
+
+					JOptionPane.showMessageDialog(null, "Não há Livro a ser alterado.");
+
+				}
+
+			}
+		});
 		btnAlterar.setBounds(205, 378, 89, 23);
 		panel.add(btnAlterar);
 
 		JButton btnExcluir = new JButton("Excluir");
+		btnExcluir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				if (objeto != null) {
+
+					controle1.excluir(objeto);
+
+					objeto = null;
+
+					/*
+					 * private JTextField liid; private JTextField liisbn; private JTextField
+					 * lititulo; private JTextField liedicao; private JTextField lieditora; private
+					 * JTextField liidioma; private JTextField livolume; private JTextField liano;
+					 */
+
+					liid.setText("");
+					liisbn.setText("");
+					lititulo.setText("");
+					liedicao.setText("");
+					lieditora.setText("");
+					liidioma.setText("");
+					livolume.setText("");
+					liano.setText("");
+
+					JOptionPane.showMessageDialog(null, "Livro excluído com sucesso.");
+
+				} else {
+
+					JOptionPane.showMessageDialog(null, "Não há Livro a ser excluído.");
+
+				}
+
+			}
+		});
 		btnExcluir.setBounds(300, 378, 89, 23);
 		panel.add(btnExcluir);
 
-		JButton btnSair = new JButton("Sair");
-		btnSair.setBounds(399, 378, 89, 23);
-		panel.add(btnSair);
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				Integer valor = Integer.parseInt(liid.getText());
+				objeto = controle1.buscarPorId(valor);
+				if (objeto != null) {
+
+					liid.setText(String.valueOf(objeto.getId()));
+					liisbn.setText(String.valueOf(objeto.getIsbn()));
+					lititulo.setText(String.valueOf(objeto.getTitulo()));
+					liedicao.setText(String.valueOf(objeto.getEdicao()));
+					lieditora.setText(String.valueOf(objeto.getEditora()));
+					liidioma.setText(String.valueOf(objeto.getIdioma()));
+					livolume.setText(String.valueOf(objeto.getVolume()));
+					liano.setText(String.valueOf(objeto.getAno()));
+
+					
+
+				} else {
+
+					JOptionPane.showMessageDialog(null, "Não existe livro com este ID cadastrado");
+
+					liid.setText("");
+
+				}
+				/*
+				 * objeto = new Livro(null, liisbn.getText(), lititulo.getText(),
+				 * liedicao.getText(), lieditora.getText(), liidioma.getText(),
+				 * livolume.getText(), liano.getText());
+				 */
+
+			}
+		});
+		btnConsultar.setBounds(399, 378, 89, 23);
+		panel.add(btnConsultar);
 
 		JButton btnInserir = new JButton("Inserir");
 		btnInserir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
+				objeto = new Livro(null, liisbn.getText(), lititulo.getText(), liedicao.getText(), lieditora.getText(), liidioma.getText(), livolume.getText(), liano.getText());
+				controle.inserir(objeto);
+				JOptionPane.showMessageDialog(null, "Livro Cadastrado.");
+				liid.setText(String.valueOf(objeto.getId()));
+				
+				/*
+				 * 
+				 * Livro v = new Livro( null, "9788533302273", "Programacao Java", "2", "IFTM",
+				 * "portugues", "1", "2023");
+				 * 
+				 * 
+				 * 
+				 * private JTextField liid; private JTextField liisbn; private JTextField
+				 * lititulo; private JTextField liedicao; private JTextField lieditora; private
+				 * JTextField liidioma; private JTextField livolume; private JTextField liano;
+				 * 
+				 * 
+				 */
 			}
 		});
 		btnInserir.setBounds(7, 378, 89, 23);
@@ -137,7 +261,7 @@ public class TelaLivro extends JInternalFrame {
 
 		JPanel lifoto = new JPanel();
 		lifoto.setLayout(null);
-		lifoto.setBounds(248, 184, 228, 183);
+		lifoto.setBounds(205, 184, 228, 183);
 		panel.add(lifoto);
 
 		liano = new JTextField();
@@ -161,4 +285,83 @@ public class TelaLivro extends JInternalFrame {
 
 	}
 
+	public Livro getObjeto() {
+		return objeto;
+	}
+
+	public void setObjeto(Livro objeto) {
+		this.objeto = objeto;
+	}
+
+	public LivroControle getControle() {
+		return controle1;
+	}
+
+	public void setControle(LivroControle controle) {
+		this.controle1 = controle;
+	}
+
+	public JTextField getLiisbn() {
+		return liisbn;
+	}
+
+	public void setLiisbn(JTextField liisbn) {
+		this.liisbn = liisbn;
+	}
+
+	public JTextField getLititulo() {
+		return lititulo;
+	}
+
+	public void setLititulo(JTextField lititulo) {
+		this.lititulo = lititulo;
+	}
+
+	public JTextField getLiedicao() {
+		return liedicao;
+	}
+
+	public void setLiedicao(JTextField liedicao) {
+		this.liedicao = liedicao;
+	}
+
+	public JTextField getLieditora() {
+		return lieditora;
+	}
+
+	public void setLieditora(JTextField lieditora) {
+		this.lieditora = lieditora;
+	}
+
+	public JTextField getLiidioma() {
+		return liidioma;
+	}
+
+	public void setLiidioma(JTextField liidioma) {
+		this.liidioma = liidioma;
+	}
+
+	public JTextField getLivolume() {
+		return livolume;
+	}
+
+	public void setLivolume(JTextField livolume) {
+		this.livolume = livolume;
+	}
+
+	public JTextField getLiano() {
+		return liano;
+	}
+
+	public void setLiano(JTextField liano) {
+		this.liano = liano;
+	}
+
+	public JTextField getLiid() {
+		return liid;
+	}
+
+	public void setLiid(JTextField liid) {
+		this.liid = liid;
+	}
 }
