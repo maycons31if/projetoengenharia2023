@@ -24,11 +24,8 @@ public class Aluno implements Serializable {
 		
 	private static final long serialVersionUID = 1L;
 	
-	@Id  /*chave primaria*/
-	
-	
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	
+	@Id  /*chave primaria*/	
+	@GeneratedValue(strategy=GenerationType.IDENTITY)	
 	private Integer id;
 	private Integer matricula;
 	private String aluno;
