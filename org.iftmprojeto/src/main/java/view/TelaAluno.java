@@ -3,32 +3,37 @@ package view;
 import java.awt.EventQueue;
 
 import javax.swing.JInternalFrame;
-import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.swing.JPanel;
+import javax.swing.border.TitledBorder;
 
 import control.AlunoControle;
 import model.Aluno;
-import model.Livro;
 
 import javax.swing.JTextField;
+import java.awt.FlowLayout;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.border.EtchedBorder;
+import java.awt.Color;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class TelaAluno extends JInternalFrame {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	protected static final JLabel alSituacao = null;
+	
 	protected static final JLabel alFoto = null;
 	private Aluno objeto;
-	private TelaAluno controle = new TelaAluno();
+	private AlunoControle controle = new AlunoControle();
 	
 	private JTextField alMatricula;
 	private JTextField alNome;
@@ -39,6 +44,7 @@ public class TelaAluno extends JInternalFrame {
 	private JTextField alNascimento;
 	private JTextField alTurno;
 	private JTextField alId;
+	protected JTextField alSituacao;
 
 	/**
 	 * Launch the application.
@@ -77,6 +83,11 @@ public class TelaAluno extends JInternalFrame {
 		JLabel lblalMatricula = new JLabel("Matricula:");
 		lblalMatricula.setBounds(20, 45, 109, 14);
 		panel.add(lblalMatricula);
+		
+		alSituacao = new JTextField();
+		alSituacao.setToolTipText("");
+		alSituacao.setBounds(409, 63, 77, 20);
+		panel.add(alSituacao);
 		
 		alMatricula = new JTextField();
 		alMatricula.setColumns(13);
@@ -147,14 +158,13 @@ public class TelaAluno extends JInternalFrame {
 					objeto.setId(Integer.parseInt(alId.getText()));
 					objeto.setMatricula(Integer.parseInt(alMatricula.getText()));
 					objeto.setNome(alNome.getText());
-					objeto.alSituacao(alSituacao.getText());
+					objeto.setSituacao(alSituacao.getText());
 					objeto.setTelefone(Integer.parseInt(alTelefone.getText()));
 					objeto.setCep(Integer.parseInt(alCep.getText()));
-					objeto.setEndereco(Integer.parseInt(alEndereco.getText()));
-					objeto.alNascimento(Integer.parseInt(alNascimento.getText()));
+					objeto.setEndereco(alEndereco.getText());
+					objeto.setDataNascimento(Integer.parseInt(alNascimento.getText()));
 					objeto.setCurso(alCurso.getText());
 					objeto.setTurno(alTurno.getText());
-					objeto.alFoto(Aluno.getText());
 
 					controle.alterar(objeto);
 					JOptionPane.showMessageDialog(null, "Aluno Atualizado com sucesso.");
@@ -211,7 +221,8 @@ public class TelaAluno extends JInternalFrame {
 		JButton btnConsultar = new JButton("Consultar");
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				   
+				Integer id = Integer.parseInt(JOptionPane.showInputDialog("Digite o ID do aluno "));
+				objeto = controle.buscarPorId(id);   
 				
 				
 				if (objeto!=null) {					
@@ -221,10 +232,10 @@ public class TelaAluno extends JInternalFrame {
 					alSituacao.setText(objeto.getSituacao());
 					alTelefone.setText(String.valueOf(objeto.getTelefone()));
 					alEndereco.setText(objeto.getEndereco());
-					alNascimento.setText(String.valueOf(objeto.getNascimento()));
+					alNascimento.setText(String.valueOf(objeto.getDataNascimento()));
 					alCurso.setText(objeto.getCurso());
 					alTurno.setText(objeto.getTurno());
-					alFoto.setText(objeto.alFoto());
+					alCep.setText(String.valueOf(objeto.getCep()));
 					
 					}else {
 						JOptionPane.showMessageDialog(null, "Não exite Aluno com essa matricula");
@@ -253,7 +264,7 @@ public class TelaAluno extends JInternalFrame {
 			
 				
 
-					objeto = new Aluno(null, alMatricula.getText(), alNome.getText(), alSituacao.getText(), alTelefone.getText(), alCep.getText(), alEndereco.getText(), alNascimento.getText(), alCurso.getText(), alTurno.getText(), null );
+					objeto = new Aluno(null, Integer.parseInt(alMatricula.getText()), alNome.getText(), alSituacao.getText(), Integer.parseInt(alTelefone.getText()), Integer.parseInt(alCep.getText()), alEndereco.getText(), Integer.parseInt(alNascimento.getText()), alCurso.getText(), alTurno.getText());
 					controle.inserir(objeto);
 					JOptionPane.showMessageDialog(null, "Aluno Cadastrado.");
 					alId.setText(String.valueOf(objeto.getId()));
@@ -283,10 +294,7 @@ public class TelaAluno extends JInternalFrame {
 		lblalNascimento.setBounds(20, 151, 109, 14);
 		panel.add(lblalNascimento);
 		
-		JComboBox alSituacao = new JComboBox();
-		alSituacao.setToolTipText("");
-		alSituacao.setBounds(409, 63, 77, 20);
-		panel.add(alSituacao);
+
 		
 		JLabel lblalSituacao = new JLabel("Situação:");
 		lblalSituacao.setBounds(409, 45, 60, 14);
@@ -316,20 +324,5 @@ public class TelaAluno extends JInternalFrame {
 		alId.setBounds(388, 11, 98, 20);
 		panel.add(alId);
 
-	}
-
-	protected void alterar(Aluno objeto2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	protected void inserir(Aluno objeto2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	protected void excluir(Aluno objeto2) {
-		// TODO Auto-generated method stub
-		
 	}
 }
