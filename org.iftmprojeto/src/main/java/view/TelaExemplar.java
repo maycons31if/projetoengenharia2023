@@ -14,6 +14,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class TelaExemplar extends JInternalFrame {
+	
+	private static final long serialVersionUID = 1L;
+
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -48,15 +51,19 @@ public class TelaExemplar extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public TelaExemplar() {
-		setBounds(100, 100, 518, 411);
+		setIconifiable(true);
+		setMaximizable(true);
+		setClosable(true);
+		setTitle("Cadastro de Exemplar");
+		setBounds(200, 200, 585, 480);
 		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
-		panel.setBounds(0, 0, 488, 360);
+		panel.setBounds(0, 0, 559, 439);
 		getContentPane().add(panel);
 		
-		JLabel lblNewLabel = new JLabel("Cadastro de Exemplar");
+		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel.setBounds(10, 11, 182, 14);
@@ -77,7 +84,7 @@ public class TelaExemplar extends JInternalFrame {
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(13);
-		textField_1.setBounds(129, 59, 359, 20);
+		textField_1.setBounds(129, 59, 420, 20);
 		panel.add(textField_1);
 		
 		JLabel lblexEdicao = new JLabel("Edição:");
@@ -104,7 +111,7 @@ public class TelaExemplar extends JInternalFrame {
 		
 		textField_4 = new JTextField();
 		textField_4.setColumns(13);
-		textField_4.setBounds(367, 109, 109, 20);
+		textField_4.setBounds(367, 109, 182, 20);
 		panel.add(textField_4);
 		
 		JLabel lblexVolume = new JLabel("Prateleira:");
@@ -117,18 +124,18 @@ public class TelaExemplar extends JInternalFrame {
 		panel.add(textField_5);
 		
 		JButton btnSalvar = new JButton("Salvar");
-		btnSalvar.setBounds(103, 337, 89, 23);
+		btnSalvar.setBounds(122, 405, 89, 23);
 		panel.add(btnSalvar);
 		
-		JButton btnEditar = new JButton("Editar");
-		btnEditar.setBounds(205, 337, 89, 23);
+		JButton btnEditar = new JButton("Alterar");
+		btnEditar.setBounds(239, 405, 89, 23);
 		panel.add(btnEditar);
 		
 		JButton btnExcluir = new JButton("Excluir");
-		btnExcluir.setBounds(300, 337, 89, 23);
+		btnExcluir.setBounds(355, 405, 89, 23);
 		panel.add(btnExcluir);
 		
-		JButton btnSair = new JButton("Sair");
+		JButton btnSair = new JButton("Consultar");
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
@@ -137,16 +144,16 @@ public class TelaExemplar extends JInternalFrame {
 
 			}
 		});
-		btnSair.setBounds(399, 337, 89, 23);
+		btnSair.setBounds(470, 405, 89, 23);
 		panel.add(btnSair);
 		
 		JButton btnNovo = new JButton("Novo");
-		btnNovo.setBounds(0, 337, 89, 23);
+		btnNovo.setBounds(0, 405, 89, 23);
 		panel.add(btnNovo);
 		
 		JPanel lblexImagem = new JPanel();
 		lblexImagem.setLayout(null);
-		lblexImagem.setBounds(248, 143, 228, 183);
+		lblexImagem.setBounds(321, 140, 228, 183);
 		panel.add(lblexImagem);
 		
 		textField_6 = new JTextField();

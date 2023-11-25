@@ -16,12 +16,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class TelaLivro extends JInternalFrame {
+	
 	private Livro objeto;
 	private LivroControle controle = getControle();
-	
-	
-	
-	
+		
 	
 	
 	private static final long serialVersionUID = 1L;
@@ -56,18 +54,22 @@ public class TelaLivro extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public TelaLivro() {
-		setBounds(100, 100, 509, 442);
+		setTitle("Cadastro de Livros");
+		setIconifiable(true);
+		setMaximizable(true);
+		setClosable(true);
+		setBounds(200, 200, 585, 480);
 		getContentPane().setLayout(null);
 
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
-		panel.setBounds(0, 0, 488, 412);
+		panel.setBounds(0, 0, 569, 450);
 		getContentPane().add(panel);
 
-		JLabel lblNewLabel = new JLabel("Cadastro de Livros");
+		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel.setBounds(10, 22, 139, 14);
+		lblNewLabel.setBounds(10, 11, 139, 14);
 		panel.add(lblNewLabel);
 
 		JLabel lblliIsbn = new JLabel("ISBN:");
@@ -85,7 +87,7 @@ public class TelaLivro extends JInternalFrame {
 
 		lititulo = new JTextField();
 		lititulo.setColumns(13);
-		lititulo.setBounds(129, 72, 359, 20);
+		lititulo.setBounds(129, 72, 399, 20);
 		panel.add(lititulo);
 
 		JLabel lblliEdicao = new JLabel("Edição:");
@@ -125,7 +127,7 @@ public class TelaLivro extends JInternalFrame {
 		panel.add(livolume);
 
 		JButton btnSalvar = new JButton("Salvar");
-		btnSalvar.setBounds(106, 378, 89, 23);
+		btnSalvar.setBounds(126, 416, 89, 23);
 		panel.add(btnSalvar);
 
 		JButton btnAlterar = new JButton("Alterar");
@@ -154,7 +156,7 @@ public class TelaLivro extends JInternalFrame {
 
 			}
 		});
-		btnAlterar.setBounds(205, 378, 89, 23);
+		btnAlterar.setBounds(239, 416, 89, 23);
 		panel.add(btnAlterar);
 
 		JButton btnExcluir = new JButton("Excluir");
@@ -192,7 +194,7 @@ public class TelaLivro extends JInternalFrame {
 
 			}
 		});
-		btnExcluir.setBounds(300, 378, 89, 23);
+		btnExcluir.setBounds(354, 416, 89, 23);
 		panel.add(btnExcluir);
 
 		JButton btnConsultar = new JButton("Consultar");
@@ -229,7 +231,7 @@ public class TelaLivro extends JInternalFrame {
 
 			}
 		});
-		btnConsultar.setBounds(399, 378, 89, 23);
+		btnConsultar.setBounds(459, 416, 89, 23);
 		panel.add(btnConsultar);
 		
 		
@@ -249,12 +251,12 @@ public class TelaLivro extends JInternalFrame {
 		
 		
 		
-		btnInserir.setBounds(7, 378, 89, 23);
+		btnInserir.setBounds(10, 416, 89, 23);
 		panel.add(btnInserir);
 
 		JPanel lifoto = new JPanel();
 		lifoto.setLayout(null);
-		lifoto.setBounds(205, 184, 228, 183);
+		lifoto.setBounds(300, 184, 228, 183);
 		panel.add(lifoto);
 
 		liano = new JTextField();
@@ -269,7 +271,7 @@ public class TelaLivro extends JInternalFrame {
 		liid = new JTextField();
 		liid.setEditable(false);
 		liid.setColumns(13);
-		liid.setBounds(378, 22, 98, 20);
+		liid.setBounds(378, 22, 150, 20);
 		panel.add(liid);
 
 		JLabel lblliId = new JLabel("ID:");

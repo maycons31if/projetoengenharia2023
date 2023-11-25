@@ -1,22 +1,19 @@
 package view;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JDesktopPane;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.FlowLayout;
 import java.awt.BorderLayout;
-import java.awt.Component;
+import java.awt.EventQueue;
+import java.awt.Toolkit;
+import java.awt.Window.Type;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.border.BevelBorder;
+
+
+
 
 public class Home {
 
@@ -25,6 +22,7 @@ public class Home {
 	/**
 	 * Launch the application.
 	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -50,9 +48,13 @@ public class Home {
 	 */
 	private void initialize() {
 		frmCadastroDeLivros = new JFrame();
-		frmCadastroDeLivros.setTitle("Cadastro de Livros");
+		frmCadastroDeLivros.setType(Type.POPUP);
+		frmCadastroDeLivros.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\maycon\\Downloads\\livros.png"));
+		frmCadastroDeLivros.setTitle("  Library");
 		frmCadastroDeLivros.setBounds(100, 100, 704, 575);
 		frmCadastroDeLivros.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmCadastroDeLivros.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
 		
 		JMenuBar menuBar = new JMenuBar();
 		frmCadastroDeLivros.setJMenuBar(menuBar);
@@ -60,43 +62,62 @@ public class Home {
 		JMenu Cadastros = new JMenu("Cadastro");
 		menuBar.add(Cadastros);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Livros");
-		
+		JMenuItem CadastroLivro = new JMenuItem("Livros");
 		frmCadastroDeLivros.getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		final JDesktopPane desktopPane = new JDesktopPane();
+		desktopPane.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		
 		frmCadastroDeLivros.getContentPane().add(desktopPane, BorderLayout.CENTER);
-		mntmNewMenuItem.addActionListener(new ActionListener() {
+		
+		CadastroLivro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TelaLivro tela = new TelaLivro();
 				tela.setVisible(true);
 				desktopPane.add(tela);
 			}
 		});
-		Cadastros.add(mntmNewMenuItem);
 		
-		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Exemplar");
-		mntmNewMenuItem_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaExemplar telae = new TelaExemplar();
-				telae.setVisible(true);
-				desktopPane.add(telae);
-			}
-		});
-		Cadastros.add(mntmNewMenuItem_2);
 		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Aluno");
-		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+		/*JMenuItem CadastroAluno = new JMenuItem("Aluno");
+
+		CadastroAluno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				TelaAluno telaa = new TelaAluno();
+				//TelaAluno telaa = new TelaAluno();
 				telaa.setVisible(true);
 				desktopPane.add(telaa);
 			}
-		});
-		Cadastros.add(mntmNewMenuItem_1);
+		});*/
 		
-		JMenu mnNewMenu = new JMenu("Sair");
+
+		
+		JMenuItem CadastroExemplar = new JMenuItem("Exemplar");
+		CadastroExemplar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TelaExemplar tela = new TelaExemplar();
+				tela.setVisible(true);
+				desktopPane.add(tela);
+			}
+		});
+		
+		
+
+		JMenuItem CadastroAlunos = new JMenuItem("Aluno");
+		CadastroAlunos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			TelaAlunos tela = new TelaAlunos();
+			tela.setVisible(true);
+			desktopPane.add(tela);
+				}
+		});
+		
+		Cadastros.add(CadastroAlunos);
+		Cadastros.add(CadastroLivro);
+		Cadastros.add(CadastroExemplar);
+		
+		
+		
+		JMenu mnNewMenu = new JMenu("Ajuda");
 		mnNewMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				   System.exit(0);
@@ -104,4 +125,7 @@ public class Home {
 		});
 		menuBar.add(mnNewMenu);
 	}
+
+
 }
+

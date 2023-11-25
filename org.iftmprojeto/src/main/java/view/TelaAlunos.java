@@ -9,32 +9,28 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JPanel;
-import javax.swing.border.TitledBorder;
-
 import control.AlunoControle;
 import model.Aluno;
 
 import javax.swing.JTextField;
-import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.beans.PropertyVetoException;
 import java.awt.event.ActionEvent;
-import javax.swing.border.EtchedBorder;
-import java.awt.Color;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
 
-public class TelaAluno extends JInternalFrame {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class TelaAlunos extends JInternalFrame {
+		
 	
-	protected static final JLabel alFoto = null;
+
+
 	private Aluno objeto;
 	private AlunoControle controle = new AlunoControle();
 	
+	
+private static final long serialVersionUID = 1L;
+	
+	protected static final JLabel alFoto = null;
+
 	private JTextField alMatricula;
 	private JTextField alNome;
 	private JTextField alTelefone;
@@ -53,7 +49,7 @@ public class TelaAluno extends JInternalFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TelaAluno frame = new TelaAluno();
+					TelaAlunos frame = new TelaAlunos();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -64,17 +60,23 @@ public class TelaAluno extends JInternalFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws PropertyVetoException 
 	 */
-	public TelaAluno() {
-		setBounds(100, 100, 529, 439);
+	public TelaAlunos() throws PropertyVetoException {
+		setIconifiable(true);
+		setMaximizable(true);
+		setMaximum(true);
+		setClosable(true);
+		setTitle("Cadastro de Alunos");
+		setBounds(100, 100, 624, 457);
 		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
-		panel.setBounds(0, 0, 508, 393);
+		panel.setBounds(0, 0, 608, 431);
 		getContentPane().add(panel);
 		
-		JLabel lblNewLabel = new JLabel("Cadastro de Aluno");
+		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel.setBounds(10, 11, 128, 17);
@@ -86,7 +88,7 @@ public class TelaAluno extends JInternalFrame {
 		
 		alSituacao = new JTextField();
 		alSituacao.setToolTipText("");
-		alSituacao.setBounds(409, 63, 77, 20);
+		alSituacao.setBounds(409, 63, 172, 20);
 		panel.add(alSituacao);
 		
 		alMatricula = new JTextField();
@@ -118,7 +120,7 @@ public class TelaAluno extends JInternalFrame {
 		
 		alEndereco = new JTextField();
 		alEndereco.setColumns(13);
-		alEndereco.setBounds(258, 120, 228, 20);
+		alEndereco.setBounds(258, 120, 323, 20);
 		panel.add(alEndereco);
 		
 		JLabel lblalCurso = new JLabel("Curso:");
@@ -142,11 +144,9 @@ public class TelaAluno extends JInternalFrame {
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				Integer matricula = Integer.parseInt(alNome.getText());
 			}
 		});
-		btnSalvar.setBounds(113, 348, 85, 23);
+		btnSalvar.setBounds(139, 386, 85, 23);
 		panel.add(btnSalvar);
 		
 		JButton btnAlterar = new JButton("Alterar");
@@ -174,7 +174,7 @@ public class TelaAluno extends JInternalFrame {
 				}
 }
 		});
-		btnAlterar.setBounds(215, 348, 85, 23);
+		btnAlterar.setBounds(258, 386, 85, 23);
 		panel.add(btnAlterar);
 		
 		JButton btnExcluir = new JButton("Excluir");
@@ -215,7 +215,7 @@ public class TelaAluno extends JInternalFrame {
 			
 			}
 		});
-		btnExcluir.setBounds(310, 348, 85, 23);
+		btnExcluir.setBounds(388, 386, 85, 23);
 		panel.add(btnExcluir);
 		
 		JButton btnConsultar = new JButton("Consultar");
@@ -255,7 +255,7 @@ public class TelaAluno extends JInternalFrame {
 			 
 			}
 		});
-		btnConsultar.setBounds(405, 348, 85, 23);
+		btnConsultar.setBounds(513, 386, 85, 23);
 		panel.add(btnConsultar);
 		
 		JButton btnInserir = new JButton("Inserir");
@@ -269,15 +269,13 @@ public class TelaAluno extends JInternalFrame {
 					JOptionPane.showMessageDialog(null, "Aluno Cadastrado.");
 					alId.setText(String.valueOf(objeto.getId()));
 					
-					
-			
-						
+								
 			
 			}
 		});
 		
 		
-		btnInserir.setBounds(10, 348, 85, 23);
+		btnInserir.setBounds(10, 386, 85, 23);
 		panel.add(btnInserir);
 		
 		JPanel lblalImagem = new JPanel();
@@ -311,7 +309,7 @@ public class TelaAluno extends JInternalFrame {
 		
 		JPanel alFoto = new JPanel();
 		alFoto.setLayout(null);
-		alFoto.setBounds(258, 154, 228, 183);
+		alFoto.setBounds(353, 151, 228, 183);
 		panel.add(alFoto);
 		
 		JLabel lblalid = new JLabel("ID:");
@@ -321,7 +319,7 @@ public class TelaAluno extends JInternalFrame {
 		alId = new JTextField();
 		alId.setEditable(false);
 		alId.setColumns(13);
-		alId.setBounds(388, 11, 98, 20);
+		alId.setBounds(388, 11, 193, 20);
 		panel.add(alId);
 
 	}
