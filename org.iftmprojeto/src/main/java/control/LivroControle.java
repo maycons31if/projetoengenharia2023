@@ -8,8 +8,8 @@ import model.Livro;
 import java.util.List;
 
 public class LivroControle {
-	private EntityManager em;
 
+	private EntityManager em;
 	public LivroControle() {
 
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("library");

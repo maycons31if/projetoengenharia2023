@@ -18,7 +18,7 @@ import java.awt.event.ActionEvent;
 public class TelaLivro extends JInternalFrame {
 	
 	private Livro objeto;
-	private LivroControle controle = getControle();
+	private LivroControle controle = new LivroControle();
 		
 	
 	
@@ -58,12 +58,12 @@ public class TelaLivro extends JInternalFrame {
 		setIconifiable(true);
 		setMaximizable(true);
 		setClosable(true);
-		setBounds(200, 200, 585, 480);
+		setBounds(200, 200, 607, 500);
 		getContentPane().setLayout(null);
 
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
-		panel.setBounds(0, 0, 569, 450);
+		panel.setBounds(0, 0, 596, 474);
 		getContentPane().add(panel);
 
 		JLabel lblNewLabel = new JLabel("");
@@ -125,9 +125,30 @@ public class TelaLivro extends JInternalFrame {
 		livolume.setColumns(13);
 		livolume.setBounds(367, 128, 109, 20);
 		panel.add(livolume);
+		
+		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				liid.setText(null);
+				liisbn.setText(null);
+				lititulo.setText(null);
+				liedicao.setText(null);
+				lieditora.setText(null);
+				liidioma.setText(null);
+				livolume.setText(null);
+				liano.setText(null);
+				JOptionPane.showMessageDialog(null, "Limpeza Realizada com sucesso.");
+
+			
+			
+			}
+		});
+		btnLimpar.setBounds(399, 416, 89, 23);
+		panel.add(btnLimpar);
 
 		JButton btnSalvar = new JButton("Salvar");
-		btnSalvar.setBounds(126, 416, 89, 23);
+		btnSalvar.setBounds(106, 416, 89, 23);
 		panel.add(btnSalvar);
 
 		JButton btnAlterar = new JButton("Alterar");
@@ -156,7 +177,7 @@ public class TelaLivro extends JInternalFrame {
 
 			}
 		});
-		btnAlterar.setBounds(239, 416, 89, 23);
+		btnAlterar.setBounds(205, 416, 89, 23);
 		panel.add(btnAlterar);
 
 		JButton btnExcluir = new JButton("Excluir");
@@ -194,7 +215,7 @@ public class TelaLivro extends JInternalFrame {
 
 			}
 		});
-		btnExcluir.setBounds(354, 416, 89, 23);
+		btnExcluir.setBounds(300, 416, 89, 23);
 		panel.add(btnExcluir);
 
 		JButton btnConsultar = new JButton("Consultar");
@@ -231,7 +252,7 @@ public class TelaLivro extends JInternalFrame {
 
 			}
 		});
-		btnConsultar.setBounds(459, 416, 89, 23);
+		btnConsultar.setBounds(497, 416, 89, 23);
 		panel.add(btnConsultar);
 		
 		

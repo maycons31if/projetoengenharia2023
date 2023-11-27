@@ -17,12 +17,13 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
 import java.awt.event.ActionEvent;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.JScrollPane;
+import javax.swing.table.DefaultTableModel;
 
 public class TelaAlunos extends JInternalFrame {
 		
-	
-
-
 	private Aluno objeto;
 	private AlunoControle controle = new AlunoControle();
 	
@@ -41,6 +42,7 @@ private static final long serialVersionUID = 1L;
 	private JTextField alTurno;
 	private JTextField alId;
 	protected JTextField alSituacao;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -62,92 +64,94 @@ private static final long serialVersionUID = 1L;
 	 * Create the frame.
 	 * @throws PropertyVetoException 
 	 */
-	public TelaAlunos() throws PropertyVetoException {
+	public TelaAlunos() {
 		setIconifiable(true);
 		setMaximizable(true);
-		setMaximum(true);
 		setClosable(true);
 		setTitle("Cadastro de Alunos");
-		setBounds(100, 100, 624, 457);
+		setBounds(100, 100, 612, 511);
 		getContentPane().setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setLayout(null);
-		panel.setBounds(0, 0, 608, 431);
-		getContentPane().add(panel);
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setBounds(0, 0, 608, 481);
+		getContentPane().add(tabbedPane);
+		
+		JPanel taAluno = new JPanel();
+		tabbedPane.addTab("Aluno", null, taAluno, null);
+		taAluno.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel.setBounds(10, 11, 128, 17);
-		panel.add(lblNewLabel);
+		taAluno.add(lblNewLabel);
 		
 		JLabel lblalMatricula = new JLabel("Matricula:");
 		lblalMatricula.setBounds(20, 45, 109, 14);
-		panel.add(lblalMatricula);
+		taAluno.add(lblalMatricula);
 		
 		alSituacao = new JTextField();
 		alSituacao.setToolTipText("");
 		alSituacao.setBounds(409, 63, 172, 20);
-		panel.add(alSituacao);
+		taAluno.add(alSituacao);
 		
 		alMatricula = new JTextField();
 		alMatricula.setColumns(13);
 		alMatricula.setBounds(20, 64, 110, 20);
-		panel.add(alMatricula);
+		taAluno.add(alMatricula);
 		
 		JLabel lblalAluno = new JLabel("Nome:");
 		lblalAluno.setBounds(139, 45, 260, 14);
-		panel.add(lblalAluno);
+		taAluno.add(lblalAluno);
 		
 		alNome = new JTextField();
 		alNome.setColumns(13);
 		alNome.setBounds(139, 64, 260, 20);
-		panel.add(alNome);
+		taAluno.add(alNome);
 		
 		JLabel lblalEdicao = new JLabel("Telefone:");
 		lblalEdicao.setBounds(20, 95, 75, 14);
-		panel.add(lblalEdicao);
+		taAluno.add(lblalEdicao);
 		
 		alTelefone = new JTextField();
 		alTelefone.setColumns(13);
 		alTelefone.setBounds(20, 120, 110, 20);
-		panel.add(alTelefone);
+		taAluno.add(alTelefone);
 		
 		JLabel lblalEndereco = new JLabel("Endereço:");
 		lblalEndereco.setBounds(258, 95, 211, 14);
-		panel.add(lblalEndereco);
+		taAluno.add(lblalEndereco);
 		
 		alEndereco = new JTextField();
 		alEndereco.setColumns(13);
 		alEndereco.setBounds(258, 120, 323, 20);
-		panel.add(alEndereco);
+		taAluno.add(alEndereco);
 		
 		JLabel lblalCurso = new JLabel("Curso:");
 		lblalCurso.setBounds(139, 151, 109, 14);
-		panel.add(lblalCurso);
+		taAluno.add(lblalCurso);
 		
 		alCurso = new JTextField();
 		alCurso.setColumns(13);
 		alCurso.setBounds(139, 176, 110, 20);
-		panel.add(alCurso);
+		taAluno.add(alCurso);
 		
 		JLabel lblalCep = new JLabel("CEP:");
 		lblalCep.setBounds(139, 95, 110, 14);
-		panel.add(lblalCep);
+		taAluno.add(lblalCep);
 		
 		alCep = new JTextField();
 		alCep.setColumns(13);
 		alCep.setBounds(139, 120, 110, 20);
-		panel.add(alCep);
+		taAluno.add(alCep);
 		
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnSalvar.setBounds(139, 386, 85, 23);
-		panel.add(btnSalvar);
+		btnSalvar.setBounds(105, 389, 85, 23);
+		taAluno.add(btnSalvar);
 		
 		JButton btnAlterar = new JButton("Alterar");
 		btnAlterar.addActionListener(new ActionListener() {
@@ -174,8 +178,8 @@ private static final long serialVersionUID = 1L;
 				}
 }
 		});
-		btnAlterar.setBounds(258, 386, 85, 23);
-		panel.add(btnAlterar);
+		btnAlterar.setBounds(200, 389, 85, 23);
+		taAluno.add(btnAlterar);
 		
 		JButton btnExcluir = new JButton("Excluir");
 		btnExcluir.addActionListener(new ActionListener() {
@@ -215,8 +219,8 @@ private static final long serialVersionUID = 1L;
 			
 			}
 		});
-		btnExcluir.setBounds(388, 386, 85, 23);
-		panel.add(btnExcluir);
+		btnExcluir.setBounds(296, 389, 85, 23);
+		taAluno.add(btnExcluir);
 		
 		JButton btnConsultar = new JButton("Consultar");
 		btnConsultar.addActionListener(new ActionListener() {
@@ -255,8 +259,8 @@ private static final long serialVersionUID = 1L;
 			 
 			}
 		});
-		btnConsultar.setBounds(513, 386, 85, 23);
-		panel.add(btnConsultar);
+		btnConsultar.setBounds(486, 389, 100, 23);
+		taAluno.add(btnConsultar);
 		
 		JButton btnInserir = new JButton("Inserir");
 		btnInserir.addActionListener(new ActionListener() {
@@ -275,52 +279,94 @@ private static final long serialVersionUID = 1L;
 		});
 		
 		
-		btnInserir.setBounds(10, 386, 85, 23);
-		panel.add(btnInserir);
+		btnInserir.setBounds(10, 389, 85, 23);
+		taAluno.add(btnInserir);
 		
 		JPanel lblalImagem = new JPanel();
 		lblalImagem.setLayout(null);
 		lblalImagem.setBounds(258, 154, 1, 1);
-		panel.add(lblalImagem);
+		taAluno.add(lblalImagem);
 		
 		alNascimento = new JTextField();
 		alNascimento.setColumns(13);
 		alNascimento.setBounds(20, 176, 110, 20);
-		panel.add(alNascimento);
+		taAluno.add(alNascimento);
 		
 		JLabel lblalNascimento = new JLabel("Data Nascimento:");
 		lblalNascimento.setBounds(20, 151, 109, 14);
-		panel.add(lblalNascimento);
+		taAluno.add(lblalNascimento);
 		
 
 		
 		JLabel lblalSituacao = new JLabel("Situação:");
 		lblalSituacao.setBounds(409, 45, 60, 14);
-		panel.add(lblalSituacao);
+		taAluno.add(lblalSituacao);
 		
 		JLabel lblalTurno = new JLabel("Turno:");
 		lblalTurno.setBounds(20, 207, 109, 14);
-		panel.add(lblalTurno);
+		taAluno.add(lblalTurno);
 		
 		alTurno = new JTextField();
 		alTurno.setColumns(13);
 		alTurno.setBounds(20, 232, 110, 20);
-		panel.add(alTurno);
+		taAluno.add(alTurno);
 		
-		JPanel alFoto = new JPanel();
-		alFoto.setLayout(null);
-		alFoto.setBounds(353, 151, 228, 183);
-		panel.add(alFoto);
+		JPanel alFoto_1 = new JPanel();
+		alFoto_1.setLayout(null);
+		alFoto_1.setBounds(353, 151, 228, 183);
+		taAluno.add(alFoto_1);
 		
 		JLabel lblalid = new JLabel("ID:");
 		lblalid.setBounds(360, 14, 39, 14);
-		panel.add(lblalid);
+		taAluno.add(lblalid);
 		
 		alId = new JTextField();
 		alId.setEditable(false);
 		alId.setColumns(13);
 		alId.setBounds(388, 11, 193, 20);
-		panel.add(alId);
+		taAluno.add(alId);
+		
+		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				alId.setText(null);
+				
+				alMatricula.setText(null);	
+				alNome.setText(null);
+				alSituacao.setText(null);
+				alTelefone.setText(null);
+				alEndereco.setText(null);
+				alNascimento.setText(null);
+				alCurso.setText(null);
+				alTurno.setText(null);
+				alCep.setText(null);
+				
+				JOptionPane.showMessageDialog(null, "Limpeza Realizada com sucesso.");
+				
+				
+			}
+		});
+		btnLimpar.setBounds(391, 389, 85, 23);
+		taAluno.add(btnLimpar);
+		
+		JPanel taTabela = new JPanel();
+		tabbedPane.addTab("Tabela Alunos", null, taTabela, null);
+		taTabela.setLayout(null);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 11, 583, 381);
+		taTabela.add(scrollPane);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column"
+			}
+		));
+		scrollPane.setViewportView(table);
 
 	}
 }
