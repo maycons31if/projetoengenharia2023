@@ -76,6 +76,24 @@ private static final long serialVersionUID = 1L;
 		tabbedPane.setBounds(0, 0, 608, 481);
 		getContentPane().add(tabbedPane);
 		
+		JPanel taTabela = new JPanel();
+		tabbedPane.addTab("Tabela Alunos", null, taTabela, null);
+		taTabela.setLayout(null);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 11, 583, 381);
+		taTabela.add(scrollPane);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column"
+			}
+		));
+		scrollPane.setViewportView(table);
+		
 		JPanel taAluno = new JPanel();
 		tabbedPane.addTab("Aluno", null, taAluno, null);
 		taAluno.setLayout(null);
@@ -145,14 +163,6 @@ private static final long serialVersionUID = 1L;
 		alCep.setBounds(139, 120, 110, 20);
 		taAluno.add(alCep);
 		
-		JButton btnSalvar = new JButton("Salvar");
-		btnSalvar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnSalvar.setBounds(105, 389, 85, 23);
-		taAluno.add(btnSalvar);
-		
 		JButton btnAlterar = new JButton("Alterar");
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -178,7 +188,7 @@ private static final long serialVersionUID = 1L;
 				}
 }
 		});
-		btnAlterar.setBounds(200, 389, 85, 23);
+		btnAlterar.setBounds(105, 389, 85, 23);
 		taAluno.add(btnAlterar);
 		
 		JButton btnExcluir = new JButton("Excluir");
@@ -219,7 +229,7 @@ private static final long serialVersionUID = 1L;
 			
 			}
 		});
-		btnExcluir.setBounds(296, 389, 85, 23);
+		btnExcluir.setBounds(201, 389, 85, 23);
 		taAluno.add(btnExcluir);
 		
 		JButton btnConsultar = new JButton("Consultar");
@@ -260,7 +270,7 @@ private static final long serialVersionUID = 1L;
 			 
 			}
 		});
-		btnConsultar.setBounds(486, 389, 100, 23);
+		btnConsultar.setBounds(391, 389, 100, 23);
 		taAluno.add(btnConsultar);
 		
 		JButton btnInserir = new JButton("Inserir");
@@ -348,26 +358,8 @@ private static final long serialVersionUID = 1L;
 				
 			}
 		});
-		btnLimpar.setBounds(391, 389, 85, 23);
+		btnLimpar.setBounds(296, 389, 85, 23);
 		taAluno.add(btnLimpar);
-		
-		JPanel taTabela = new JPanel();
-		tabbedPane.addTab("Tabela Alunos", null, taTabela, null);
-		taTabela.setLayout(null);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 11, 583, 381);
-		taTabela.add(scrollPane);
-		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column"
-			}
-		));
-		scrollPane.setViewportView(table);
 
 	}
 }
