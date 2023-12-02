@@ -225,6 +225,7 @@ private static final long serialVersionUID = 1L;
 		JButton btnConsultar = new JButton("Consultar");
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				Integer id = Integer.parseInt(JOptionPane.showInputDialog("Digite o ID do aluno "));
 				objeto = controle.buscarPorId(id);   
 				

@@ -16,15 +16,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class TelaLivro extends JInternalFrame {
+	private static final long serialVersionUID = 1L;
+
+	
 	
 	private Livro objeto;
 	private LivroControle controle = new LivroControle();
-		
-	
-	
-	private static final long serialVersionUID = 1L;
-	//private Livro objeto;
-	//private LivroControle controle = new LivroControle();
 	private JTextField liid;
 	private JTextField liisbn;
 	private JTextField lititulo;
@@ -222,8 +219,10 @@ public class TelaLivro extends JInternalFrame {
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Integer valor = Integer.parseInt(liid.getText());
-				objeto = controle.buscarPorId(valor);
+					
+				Integer id = Integer.parseInt(JOptionPane.showInputDialog("Digite o ID do Livro "));
+				objeto = controle.buscarPorId(id); 
+				
 				if (objeto != null) {
 
 					liid.setText(String.valueOf(objeto.getId()));
@@ -266,7 +265,7 @@ public class TelaLivro extends JInternalFrame {
 				controle.inserir(objeto);
 				JOptionPane.showMessageDialog(null, "Livro Cadastrado.");
 				liid.setText(String.valueOf(objeto.getId()));
-				
+
 						}
 		});
 		
