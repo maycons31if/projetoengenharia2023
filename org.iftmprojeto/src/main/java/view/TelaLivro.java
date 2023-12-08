@@ -141,12 +141,8 @@ public class TelaLivro extends JInternalFrame {
 			
 			}
 		});
-		btnLimpar.setBounds(399, 416, 89, 23);
+		btnLimpar.setBounds(304, 416, 89, 23);
 		panel.add(btnLimpar);
-
-		JButton btnSalvar = new JButton("Salvar");
-		btnSalvar.setBounds(106, 416, 89, 23);
-		panel.add(btnSalvar);
 
 		JButton btnAlterar = new JButton("Alterar");
 		btnAlterar.addActionListener(new ActionListener() {
@@ -174,7 +170,7 @@ public class TelaLivro extends JInternalFrame {
 
 			}
 		});
-		btnAlterar.setBounds(205, 416, 89, 23);
+		btnAlterar.setBounds(109, 416, 89, 23);
 		panel.add(btnAlterar);
 
 		JButton btnExcluir = new JButton("Excluir");
@@ -212,7 +208,7 @@ public class TelaLivro extends JInternalFrame {
 
 			}
 		});
-		btnExcluir.setBounds(300, 416, 89, 23);
+		btnExcluir.setBounds(208, 416, 89, 23);
 		panel.add(btnExcluir);
 
 		JButton btnConsultar = new JButton("Consultar");
@@ -251,7 +247,7 @@ public class TelaLivro extends JInternalFrame {
 
 			}
 		});
-		btnConsultar.setBounds(497, 416, 89, 23);
+		btnConsultar.setBounds(401, 416, 89, 23);
 		panel.add(btnConsultar);
 		
 		

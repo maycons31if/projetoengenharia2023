@@ -76,24 +76,6 @@ private static final long serialVersionUID = 1L;
 		tabbedPane.setBounds(0, 0, 608, 481);
 		getContentPane().add(tabbedPane);
 		
-		JPanel taTabela = new JPanel();
-		tabbedPane.addTab("Tabela Alunos", null, taTabela, null);
-		taTabela.setLayout(null);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 11, 583, 381);
-		taTabela.add(scrollPane);
-		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column"
-			}
-		));
-		scrollPane.setViewportView(table);
-		
 		JPanel taAluno = new JPanel();
 		tabbedPane.addTab("Aluno", null, taAluno, null);
 		taAluno.setLayout(null);
@@ -360,6 +342,24 @@ private static final long serialVersionUID = 1L;
 		});
 		btnLimpar.setBounds(296, 389, 85, 23);
 		taAluno.add(btnLimpar);
+		
+		JPanel taTabela = new JPanel();
+		tabbedPane.addTab("Tabela Alunos", null, taTabela, null);
+		taTabela.setLayout(null);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 11, 583, 381);
+		taTabela.add(scrollPane);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column", "New column"
+			}
+		));
+		scrollPane.setViewportView(table);
 
 	}
 }
